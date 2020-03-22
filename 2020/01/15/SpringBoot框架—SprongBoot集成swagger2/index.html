@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    SpringMVC框架 — SpringMVC拓展 |  Aaron Blog
+    SpringBoot框架—SpringBoot集成Swagger2 |  Aaron Blog
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -31,7 +31,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-8.SpringMVC框架—SpringMVC拓展" class="article article-type-post" itemscope
+  <article id="post-SpringBoot框架—SprongBoot集成swagger2" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -39,7 +39,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  SpringMVC框架 — SpringMVC拓展
+  SpringBoot框架—SpringBoot集成Swagger2
 </h1>
   
 
@@ -48,12 +48,12 @@
 
     
     <div class="article-meta">
-      <a href="/2019/12/19/8.SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/" class="article-date">
-  <time datetime="2019-12-19T04:12:57.000Z" itemprop="datePublished">2019-12-19</time>
+      <a href="/2020/01/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SprongBoot%E9%9B%86%E6%88%90swagger2/" class="article-date">
+  <time datetime="2020-01-14T16:00:00.000Z" itemprop="datePublished">2020-01-15</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/SSM/">SSM</a>
+    <a class="article-category-link" href="/categories/SpringBoot/">SpringBoot</a>
   </div>
 
       
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">542字</span>
+            <span class="post-count">350字</span>
         </span>
     </span>
 
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2分钟</span>
+            <span class="post-count">1分钟</span>
         </span>
     </span>
 </div>
@@ -99,41 +99,15 @@
       
 
       
-      <h2 id="SpringMVC框架-—-SpringMVC拓展"><a href="#SpringMVC框架-—-SpringMVC拓展" class="headerlink" title="SpringMVC框架 — SpringMVC拓展"></a>SpringMVC框架 — SpringMVC拓展</h2><hr>
-<h3 id="1-SpringMvc的Model与ModelAndView"><a href="#1-SpringMvc的Model与ModelAndView" class="headerlink" title="1.SpringMvc的Model与ModelAndView"></a>1.SpringMvc的Model与ModelAndView</h3><ol>
-<li>Model：用于接收数据传递到显示页面，需要作为参数传递<ul>
-<li>addAttribute(String name,Object value)：添加键值对属性</li>
-<li>addAttribute(Object obj)：将一个对象存到对象中，把该类名首字母小写作为key值</li>
-<li>asMap()：将当前model转换为Map</li>
-<li>mergeAttribute(Map &lt;String,?&gt; hashmap)：和addAttribute相同，但允许有相同的key值</li>
-<li>containsAttribute(String name)：判断model中是否包含一个键值对，返回boolean</li>
-</ul>
-</li>
-<li>ModelAndView：将控制器处理的结果数据返回到显示页面，作为返回类型使用，也可设置转向地址<ul>
-<li>setViewName(String  path)：设置转向地址</li>
-<li>addObject(String  name , Object value)：将控制器处理的结果数据返回到显示页面</li>
-</ul>
-</li>
-</ol>
+      <h2 id="SpringBoot框架—SprongBoot集成swagger2"><a href="#SpringBoot框架—SprongBoot集成swagger2" class="headerlink" title="SpringBoot框架—SprongBoot集成swagger2"></a>SpringBoot框架—SprongBoot集成swagger2</h2><hr>
+<h3 id="1-在pom-xml中导入依赖"><a href="#1-在pom-xml中导入依赖" class="headerlink" title="1.在pom.xml中导入依赖"></a>1.在pom.xml中导入依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- swagger2 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- swagger-ui --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 
-<h3 id="2-JSON数据传递处理"><a href="#2-JSON数据传递处理" class="headerlink" title="2.JSON数据传递处理"></a>2.JSON数据传递处理</h3><ol>
-<li>在方法上加@ResponseBody，通过JSON.toJSONString()将数据转换为json格式</li>
-<li>解决json数据传递乱码问题：在@RequestMapping里面加  produces = {“application/json;charset=UTF-8”}</li>
-<li>解决json数据传递日期问题：在属性上加 @JSONField(format = “yyyy-MM-dd”)</li>
-</ol>
-<h3 id="3-SpringMVC文件上传"><a href="#3-SpringMVC文件上传" class="headerlink" title="3.SpringMVC文件上传"></a>3.SpringMVC文件上传</h3><ol>
-<li><p>导入maven坐标</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>springmvc.xml配置CommonsMultipartResolver</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"multipartResolver"</span></span></span><br><span class="line"><span class="tag"><span class="attr">class</span>=<span class="string">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--上传文件的最大大小，单位为字节 --&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxUploadSize"</span> <span class="attr">value</span>=<span class="string">"17367648787"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 上传文件的编码 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"defaultEncoding"</span> <span class="attr">value</span>=<span class="string">"UTF-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置前端jsp页面：input的type设置为file，from表单的enctype设置为multipart/form-data</p>
-</li>
-<li><p>Controller层使用MultipartFile对象作为参数，接收前端发送过来的文件，将文件写入本地文件中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/uploadFile"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">uploadFile</span><span class="params">(@RequestParam(<span class="string">"file"</span>)</span> MultipartFile file, HttpServletRequest req)</span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> IllegalStateException, IOException </span>&#123;</span><br><span class="line">    <span class="comment">// 判断文件是否为空，空则返回失败页面</span></span><br><span class="line">    <span class="keyword">if</span> (file.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"失败页面"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取文件存储路径（绝对路径）</span></span><br><span class="line">    String path = req.getSession().getServletContext().getRealPath(<span class="string">"/WEB-INF/file"</span>);</span><br><span class="line">    <span class="comment">// 获取原文件名</span></span><br><span class="line">    String fileName = file.getOriginalFilename();</span><br><span class="line">    <span class="comment">// 创建文件实例</span></span><br><span class="line">    File filePath = <span class="keyword">new</span> File(path, fileName);</span><br><span class="line">    <span class="comment">// 如果文件目录不存在，创建目录</span></span><br><span class="line">    <span class="keyword">if</span> (!filePath.getParentFile().exists()) &#123;</span><br><span class="line">        filePath.getParentFile().mkdirs();</span><br><span class="line">        System.out.println(<span class="string">"创建目录"</span> + filePath);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 写入文件</span></span><br><span class="line">    file.transferTo(filePath);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"成功页面"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
+<h3 id="2-编写SwaggerConfig类"><a href="#2-编写SwaggerConfig类" class="headerlink" title="2.编写SwaggerConfig类"></a>2.编写SwaggerConfig类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger</span>2</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建API应用</span></span><br><span class="line"><span class="comment">     * apiInfo() 增加API相关信息</span></span><br><span class="line"><span class="comment">     * 通过select()函数返回一个ApiSelectorBuilder实例,用来控制哪些接口暴露给Swagger来展现，</span></span><br><span class="line"><span class="comment">     * 本例采用指定扫描的包路径来定义指定要建立API的目录。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: Docket</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">createRestApi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.basePackage(<span class="string">"com.accp.controller"</span>))</span><br><span class="line">                .paths(PathSelectors.any())</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建该API的基本信息（这些基本信息会展现在文档页面中）</span></span><br><span class="line"><span class="comment">     * 访问地址：http://项目实际地址/swagger-ui.html</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: ApiInfo</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder()</span><br><span class="line">                .title(<span class="string">"Spring Boot中使用Swagger2"</span>)</span><br><span class="line">                .description(<span class="string">"更多请关注http://www.baidu.com"</span>)</span><br><span class="line">                .termsOfServiceUrl(<span class="string">"http://www.baidu.com"</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-使用Restful风格编写Controller"><a href="#3-使用Restful风格编写Controller" class="headerlink" title="3.使用Restful风格编写Controller"></a>3.使用Restful风格编写Controller</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"login"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Result result;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation</span>(value=<span class="string">"查询"</span>,notes = <span class="string">"查询用户列表"</span>)</span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"findUser"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Result <span class="title">findUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;User&gt; user = userService.findUser();</span><br><span class="line">        result.setCode(<span class="number">1</span>);</span><br><span class="line">        result.setMsg(<span class="string">"success"</span>);</span><br><span class="line">        result.setData(user);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation</span>(value=<span class="string">"删除"</span>,notes = <span class="string">"删除用户"</span>)</span><br><span class="line">    <span class="meta">@DeleteMapping</span>(<span class="string">"del/&#123;redisKey&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">del</span><span class="params">(@PathVariable String redisKey)</span> </span>&#123;</span><br><span class="line">        userService.delCache(redisKey);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-启动项目访问Swagger—ui"><a href="#4-启动项目访问Swagger—ui" class="headerlink" title="4.启动项目访问Swagger—ui"></a>4.启动项目访问Swagger—ui</h3><p><img src="https://pic.downk.cc/item/5e76c6b29d7d586a54733260.png" alt=""></p>
 
       
       <!-- reward -->
@@ -203,14 +177,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2019/12/19/8.SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/01/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SprongBoot%E9%9B%86%E6%88%90swagger2/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringMVC/" rel="tag">SpringMVC</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swagger2/" rel="tag">Swagger2</a></li></ul>
 
 
     </footer>
@@ -221,19 +195,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2019/12/20/9.SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            SSM框架整合
-          
-        </div>
-      </a>
     
-    
-      <a href="/2019/12/18/7.SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BSpringMVC/" class="article-nav-link">
+      <a href="/2020/01/12/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK_MyBatis/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">SpringMVC框架 —  初始SpringMVC</div>
+        <div class="article-nav-title">SpringBoot框架—SpringBoot集成TK_MyBatis</div>
       </a>
     
   </nav>
