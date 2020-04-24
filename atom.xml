@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://starbuck.top/"/>
-  <updated>2020-04-24T02:40:57.252Z</updated>
+  <updated>2020-04-24T02:51:45.091Z</updated>
   <id>https://starbuck.top/</id>
   
   <author>
@@ -21,12 +21,11 @@
     <link href="https://starbuck.top/2020/01/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
     <id>https://starbuck.top/2020/01/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-01-22T16:00:00.000Z</published>
-    <updated>2020-04-24T02:40:57.252Z</updated>
+    <updated>2020-04-24T02:51:45.091Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;设计模式—代理模式&quot;&gt;&lt;a href=&quot;#设计模式—代理模式&quot; class=&quot;headerlink&quot; title=&quot;设计模式—代理模式&quot;&gt;&lt;/a&gt;设计模式—代理模式&lt;/h2&gt;&lt;hr&gt;
-&lt;blockquote&gt;
+      &lt;blockquote&gt;
 &lt;p&gt;代理模式是为某个对象提供一个代理对象，并由代理对象控制对原对象的访问，就像我们生活中的中介。&lt;/p&gt;
 &lt;p&gt;例如我要结婚，但是结婚是一件很麻烦的事情，需要安排很多事情，我并不想去准备这些繁琐的事情，只想和心爱的人结婚，其他的事情我还可以出钱交给婚庆公司去准备，婚庆公司为我们安排一整套流程。婚庆公司就相当于我们的代理角色&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -46,12 +45,11 @@
     <link href="https://starbuck.top/2020/01/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
     <id>https://starbuck.top/2020/01/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-01-21T16:00:00.000Z</published>
-    <updated>2020-04-24T02:41:04.638Z</updated>
+    <updated>2020-04-24T02:51:57.370Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;设计模式—工厂模式&quot;&gt;&lt;a href=&quot;#设计模式—工厂模式&quot; class=&quot;headerlink&quot; title=&quot;设计模式—工厂模式&quot;&gt;&lt;/a&gt;设计模式—工厂模式&lt;/h2&gt;&lt;hr&gt;
-&lt;blockquote&gt;
+      &lt;blockquote&gt;
 &lt;p&gt;工厂模式是java最常用的设计模式之一，属于创建型模式，它提供了一种创建对象最佳方式，我们只需要定义一个创建对象的接口，让其子类决定实例化哪一个工厂类。&lt;/p&gt;
 &lt;/blockquote&gt;
     
@@ -70,12 +68,11 @@
     <link href="https://starbuck.top/2020/01/20/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
     <id>https://starbuck.top/2020/01/20/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-01-19T16:00:00.000Z</published>
-    <updated>2020-04-24T02:35:40.123Z</updated>
+    <updated>2020-04-24T02:51:52.191Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;设计模式—单例模式&quot;&gt;&lt;a href=&quot;#设计模式—单例模式&quot; class=&quot;headerlink&quot; title=&quot;设计模式—单例模式&quot;&gt;&lt;/a&gt;设计模式—单例模式&lt;/h2&gt;&lt;hr&gt;
-&lt;blockquote&gt;
+      &lt;blockquote&gt;
 &lt;p&gt;单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -100,12 +97,11 @@
     <link href="https://starbuck.top/2020/01/18/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     <id>https://starbuck.top/2020/01/18/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1/</id>
     <published>2020-01-17T16:00:00.000Z</published>
-    <updated>2020-04-24T02:36:24.140Z</updated>
+    <updated>2020-04-24T02:54:02.422Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;SpringCloud微服务入门&quot;&gt;&lt;a href=&quot;#SpringCloud微服务入门&quot; class=&quot;headerlink&quot; title=&quot;SpringCloud微服务入门&quot;&gt;&lt;/a&gt;SpringCloud微服务入门&lt;/h2&gt;&lt;hr&gt;
-&lt;h3 id=&quot;一-什么是SpringCloud&quot;&gt;&lt;a href=&quot;#一-什么是SpringCloud&quot; class=&quot;headerlink&quot; title=&quot;一.什么是SpringCloud&quot;&gt;&lt;/a&gt;一.什么是SpringCloud&lt;/h3&gt;&lt;blockquote&gt;
+      &lt;h3 id=&quot;一-什么是SpringCloud&quot;&gt;&lt;a href=&quot;#一-什么是SpringCloud&quot; class=&quot;headerlink&quot; title=&quot;一.什么是SpringCloud&quot;&gt;&lt;/a&gt;一.什么是SpringCloud&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;Spring Cloud是一系列框架的有序集合。它利用Spring Boot的开发便利性巧妙地简化了分布式系统基础设施的开发，如服务发现注册、配置中心、智能路由、消息总线、负载均衡、断路器、数据监控等。Spring Cloud 并不重复造轮子，而是将市面上开发得比较好的模块集成进去，进行封装，从而减少了各模块的开发成本。&lt;/p&gt;
 &lt;/blockquote&gt;
     
@@ -124,12 +120,11 @@
     <link href="https://starbuck.top/2020/01/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SprongBoot%E9%9B%86%E6%88%90swagger2/"/>
     <id>https://starbuck.top/2020/01/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SprongBoot%E9%9B%86%E6%88%90swagger2/</id>
     <published>2020-01-14T16:00:00.000Z</published>
-    <updated>2020-03-22T02:03:45.326Z</updated>
+    <updated>2020-04-24T02:54:41.653Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;SpringBoot框架—SprongBoot集成swagger2&quot;&gt;&lt;a href=&quot;#SpringBoot框架—SprongBoot集成swagger2&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot框架—SprongBoot集成swagger2&quot;&gt;&lt;/a&gt;SpringBoot框架—SprongBoot集成swagger2&lt;/h2&gt;&lt;hr&gt;
-&lt;h3 id=&quot;1-在pom-xml中导入依赖&quot;&gt;&lt;a href=&quot;#1-在pom-xml中导入依赖&quot; class=&quot;headerlink&quot; title=&quot;1.在pom.xml中导入依赖&quot;&gt;&lt;/a&gt;1.在pom.xml中导入依赖&lt;/h3&gt;&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- swagger2 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;io.springfox&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;springfox-swagger2&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;2.9.2&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- swagger-ui --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;io.springfox&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;springfox-swagger-ui&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;2.9.2&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h3 id=&quot;1-在pom-xml中导入依赖&quot;&gt;&lt;a href=&quot;#1-在pom-xml中导入依赖&quot; class=&quot;headerlink&quot; title=&quot;1.在pom.xml中导入依赖&quot;&gt;&lt;/a&gt;1.在pom.xml中导入依赖&lt;/h3&gt;&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- swagger2 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;io.springfox&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;springfox-swagger2&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;2.9.2&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- swagger-ui --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;io.springfox&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;springfox-swagger-ui&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;2.9.2&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -146,12 +141,11 @@
     <link href="https://starbuck.top/2020/01/12/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK_MyBatis/"/>
     <id>https://starbuck.top/2020/01/12/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK_MyBatis/</id>
     <published>2020-01-11T16:00:00.000Z</published>
-    <updated>2020-03-22T02:03:47.219Z</updated>
+    <updated>2020-04-24T02:54:35.265Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;SpringBoot框架—SpringBoot集成TK-MyBatis&quot;&gt;&lt;a href=&quot;#SpringBoot框架—SpringBoot集成TK-MyBatis&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot框架—SpringBoot集成TK_MyBatis&quot;&gt;&lt;/a&gt;SpringBoot框架—SpringBoot集成TK_MyBatis&lt;/h2&gt;&lt;hr&gt;
-&lt;h3 id=&quot;1-搭建Tk-MyBatis环境&quot;&gt;&lt;a href=&quot;#1-搭建Tk-MyBatis环境&quot; class=&quot;headerlink&quot; title=&quot;1.搭建Tk_MyBatis环境&quot;&gt;&lt;/a&gt;1.搭建Tk_MyBatis环境&lt;/h3&gt;&lt;ol&gt;
+      &lt;h3 id=&quot;1-搭建Tk-MyBatis环境&quot;&gt;&lt;a href=&quot;#1-搭建Tk-MyBatis环境&quot; class=&quot;headerlink&quot; title=&quot;1.搭建Tk_MyBatis环境&quot;&gt;&lt;/a&gt;1.搭建Tk_MyBatis环境&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;在pom.xml导入坐标&lt;/p&gt;
 &lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;tk.mybatis&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;mapper-spring-boot-starter&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;2.0.3-beta1&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;tk.mybatis&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;mapper&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;4.0.0&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;version&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
@@ -170,12 +164,11 @@
     <link href="https://starbuck.top/2020/01/10/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BSpringBoot/"/>
     <id>https://starbuck.top/2020/01/10/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BSpringBoot/</id>
     <published>2020-01-09T16:00:00.000Z</published>
-    <updated>2020-03-22T02:06:48.295Z</updated>
+    <updated>2020-04-24T02:54:29.795Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;SpringBoot框架-—-初始SpringBoot&quot;&gt;&lt;a href=&quot;#SpringBoot框架-—-初始SpringBoot&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot框架 — 初始SpringBoot&quot;&gt;&lt;/a&gt;SpringBoot框架 — 初始SpringBoot&lt;/h2&gt;&lt;hr&gt;
-&lt;h3 id=&quot;1-搭建SpringBoot&quot;&gt;&lt;a href=&quot;#1-搭建SpringBoot&quot; class=&quot;headerlink&quot; title=&quot;1.搭建SpringBoot&quot;&gt;&lt;/a&gt;1.搭建SpringBoot&lt;/h3&gt;&lt;ol&gt;
+      &lt;h3 id=&quot;1-搭建SpringBoot&quot;&gt;&lt;a href=&quot;#1-搭建SpringBoot&quot; class=&quot;headerlink&quot; title=&quot;1.搭建SpringBoot&quot;&gt;&lt;/a&gt;1.搭建SpringBoot&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;使用idea快速搭建spring boot框架&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://pic.downk.cc/item/5e76c7319d7d586a54735cad.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
@@ -194,11 +187,19 @@
     <link href="https://starbuck.top/2019/12/20/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/"/>
     <id>https://starbuck.top/2019/12/20/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/</id>
     <published>2019-12-20T04:12:57.000Z</published>
-    <updated>2020-04-24T02:43:58.009Z</updated>
+    <updated>2020-04-24T02:54:59.936Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;SSM框架整合&quot;&gt;&lt;a href=&quot;#SSM框架整合&quot; class=&quot;headerlink&quot; title=&quot;SSM框架整合&quot;&gt;&lt;/a&gt;SSM框架整合&lt;/h2&gt;&lt;hr&gt;
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h3 id=&quot;ssm框架搭建&quot;&gt;&lt;a href=&quot;#ssm框架搭建&quot; class=&quot;headerlink&quot;
+        
+      
     
     </summary>
     
@@ -215,12 +216,11 @@
     <link href="https://starbuck.top/2019/12/19/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/"/>
     <id>https://starbuck.top/2019/12/19/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/</id>
     <published>2019-12-18T16:00:00.000Z</published>
-    <updated>2020-03-22T01:56:23.197Z</updated>
+    <updated>2020-04-24T02:54:53.475Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;SpringMVC框架-—-SpringMVC拓展&quot;&gt;&lt;a href=&quot;#SpringMVC框架-—-SpringMVC拓展&quot; class=&quot;headerlink&quot; title=&quot;SpringMVC框架 — SpringMVC拓展&quot;&gt;&lt;/a&gt;SpringMVC框架 — SpringMVC拓展&lt;/h2&gt;&lt;hr&gt;
-&lt;h3 id=&quot;1-SpringMvc的Model与ModelAndView&quot;&gt;&lt;a href=&quot;#1-SpringMvc的Model与ModelAndView&quot; class=&quot;headerlink&quot; title=&quot;1.SpringMvc的Model与ModelAndView&quot;&gt;&lt;/a&gt;1.SpringMvc的Model与ModelAndView&lt;/h3&gt;&lt;ol&gt;
+      &lt;h3 id=&quot;1-SpringMvc的Model与ModelAndView&quot;&gt;&lt;a href=&quot;#1-SpringMvc的Model与ModelAndView&quot; class=&quot;headerlink&quot; title=&quot;1.SpringMvc的Model与ModelAndView&quot;&gt;&lt;/a&gt;1.SpringMvc的Model与ModelAndView&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;Model：用于接收数据传递到显示页面，需要作为参数传递&lt;ul&gt;
 &lt;li&gt;addAttribute(String name,Object value)：添加键值对属性&lt;/li&gt;
 &lt;li&gt;addAttribute(Object obj)：将一个对象存到对象中，把该类名首字母小写作为key值&lt;/li&gt;
@@ -251,11 +251,19 @@
     <link href="https://starbuck.top/2019/12/18/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BSpringMVC/"/>
     <id>https://starbuck.top/2019/12/18/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BSpringMVC/</id>
     <published>2019-12-17T16:00:00.000Z</published>
-    <updated>2020-04-24T02:43:43.220Z</updated>
+    <updated>2020-04-24T02:54:48.500Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;SpringMVC框架-—-初始SpringMVC&quot;&gt;&lt;a href=&quot;#SpringMVC框架-—-初始SpringMVC&quot; class=&quot;headerlink&quot; title=&quot;SpringMVC框架 — 初始SpringMVC&quot;&gt;&lt;/a&gt;SpringMVC框架 — 初始SpringMVC&lt;/h2&gt;&lt;hr&gt;
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h3 id=&quot;1-创建SpringMVC项目&quot;&gt;&lt;a href=&quot;#1-创建SpringMVC项目&quot; class=&quot;headerlink&quot;
+        
+      
     
     </summary>
     
@@ -272,12 +280,11 @@
     <link href="https://starbuck.top/2019/12/17/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E4%B8%8EMybatis%E6%95%B4%E5%90%88/"/>
     <id>https://starbuck.top/2019/12/17/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E4%B8%8EMybatis%E6%95%B4%E5%90%88/</id>
     <published>2019-12-16T16:00:00.000Z</published>
-    <updated>2020-03-22T02:08:28.052Z</updated>
+    <updated>2020-04-24T02:54:23.891Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Spring框架-—-Spring与Mybatis整合&quot;&gt;&lt;a href=&quot;#Spring框架-—-Spring与Mybatis整合&quot; class=&quot;headerlink&quot; title=&quot;Spring框架 — Spring与Mybatis整合&quot;&gt;&lt;/a&gt;Spring框架 — Spring与Mybatis整合&lt;/h2&gt;&lt;hr&gt;
-&lt;h3 id=&quot;1-在pom-xml中导入相关坐标依赖&quot;&gt;&lt;a href=&quot;#1-在pom-xml中导入相关坐标依赖&quot; class=&quot;headerlink&quot; title=&quot;1.在pom.xml中导入相关坐标依赖&quot;&gt;&lt;/a&gt;1.在pom.xml中导入相关坐标依赖&lt;/h3&gt;
+      &lt;h3 id=&quot;1-在pom-xml中导入相关坐标依赖&quot;&gt;&lt;a href=&quot;#1-在pom-xml中导入相关坐标依赖&quot; class=&quot;headerlink&quot; title=&quot;1.在pom.xml中导入相关坐标依赖&quot;&gt;&lt;/a&gt;1.在pom.xml中导入相关坐标依赖&lt;/h3&gt;
     
     </summary>
     
@@ -294,12 +301,11 @@
     <link href="https://starbuck.top/2019/12/16/Spring%E6%A1%86%E6%9E%B6%E2%80%94IOC%E5%92%8CAOP%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95/"/>
     <id>https://starbuck.top/2019/12/16/Spring%E6%A1%86%E6%9E%B6%E2%80%94IOC%E5%92%8CAOP%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95/</id>
     <published>2019-12-15T16:00:00.000Z</published>
-    <updated>2020-03-22T01:56:30.072Z</updated>
+    <updated>2020-04-24T02:52:36.368Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Spring框架-—-IOC和AOP使用扩展&quot;&gt;&lt;a href=&quot;#Spring框架-—-IOC和AOP使用扩展&quot; class=&quot;headerlink&quot; title=&quot;Spring框架 — IOC和AOP使用扩展&quot;&gt;&lt;/a&gt;Spring框架 — IOC和AOP使用扩展&lt;/h2&gt;&lt;hr&gt;
-&lt;h3 id=&quot;1-多种方式实现依赖注入&quot;&gt;&lt;a href=&quot;#1-多种方式实现依赖注入&quot; class=&quot;headerlink&quot; title=&quot;1.多种方式实现依赖注入&quot;&gt;&lt;/a&gt;1.多种方式实现依赖注入&lt;/h3&gt;&lt;ol&gt;
+      &lt;h3 id=&quot;1-多种方式实现依赖注入&quot;&gt;&lt;a href=&quot;#1-多种方式实现依赖注入&quot; class=&quot;headerlink&quot; title=&quot;1.多种方式实现依赖注入&quot;&gt;&lt;/a&gt;1.多种方式实现依赖注入&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;构造函数注入&lt;/p&gt;
 &lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;accountService&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;com.accp.service.impl.accountServiceImpl&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;constructor-arg&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;value&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;张三&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;constructor-arg&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;constructor-arg&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;age&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;value&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;18&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;constructor-arg&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;constructor-arg&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;birthday&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;ref&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;now&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;constructor-arg&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;bean&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
@@ -335,12 +341,11 @@
     <link href="https://starbuck.top/2019/12/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/"/>
     <id>https://starbuck.top/2019/12/15/Spring%E6%A1%86%E6%9E%B6%E2%80%94Spring%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</id>
     <published>2019-12-14T16:00:00.000Z</published>
-    <updated>2020-03-22T01:53:45.834Z</updated>
+    <updated>2020-04-24T02:54:15.168Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Spring框架-—-Spring核心概念&quot;&gt;&lt;a href=&quot;#Spring框架-—-Spring核心概念&quot; class=&quot;headerlink&quot; title=&quot;Spring框架 — Spring核心概念&quot;&gt;&lt;/a&gt;Spring框架 — Spring核心概念&lt;/h2&gt;&lt;hr&gt;
-&lt;h3 id=&quot;1-什么是SpringIOC控制反转&quot;&gt;&lt;a href=&quot;#1-什么是SpringIOC控制反转&quot; class=&quot;headerlink&quot; title=&quot;1.什么是SpringIOC控制反转&quot;&gt;&lt;/a&gt;1.什么是SpringIOC控制反转&lt;/h3&gt;&lt;p&gt;​        控制反转（Inversion of Cpntrol IoC），也被称为依赖注入，是面向对象编程的中的一种设计理念，用来降低程序代码之间的耦合&lt;/p&gt;
+      &lt;h3 id=&quot;1-什么是SpringIOC控制反转&quot;&gt;&lt;a href=&quot;#1-什么是SpringIOC控制反转&quot; class=&quot;headerlink&quot; title=&quot;1.什么是SpringIOC控制反转&quot;&gt;&lt;/a&gt;1.什么是SpringIOC控制反转&lt;/h3&gt;&lt;p&gt;​        控制反转（Inversion of Cpntrol IoC），也被称为依赖注入，是面向对象编程的中的一种设计理念，用来降低程序代码之间的耦合&lt;/p&gt;
 &lt;h3 id=&quot;2-创建Spring项目&quot;&gt;&lt;a href=&quot;#2-创建Spring项目&quot; class=&quot;headerlink&quot; title=&quot;2.创建Spring项目&quot;&gt;&lt;/a&gt;2.创建Spring项目&lt;/h3&gt;
     
     </summary>
@@ -358,12 +363,11 @@
     <link href="https://starbuck.top/2019/12/14/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94%E5%8A%A8%E6%80%81SQL/"/>
     <id>https://starbuck.top/2019/12/14/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94%E5%8A%A8%E6%80%81SQL/</id>
     <published>2019-12-13T16:00:00.000Z</published>
-    <updated>2020-03-22T01:55:57.724Z</updated>
+    <updated>2020-04-24T02:52:23.089Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Mybatis框架-—-动态SQL&quot;&gt;&lt;a href=&quot;#Mybatis框架-—-动态SQL&quot; class=&quot;headerlink&quot; title=&quot;Mybatis框架 — 动态SQL&quot;&gt;&lt;/a&gt;Mybatis框架 — 动态SQL&lt;/h2&gt;&lt;hr&gt;
-&lt;h3 id=&quot;1-实现动态sql的元素&quot;&gt;&lt;a href=&quot;#1-实现动态sql的元素&quot; class=&quot;headerlink&quot; title=&quot;1.实现动态sql的元素&quot;&gt;&lt;/a&gt;1.实现动态sql的元素&lt;/h3&gt;&lt;ul&gt;
+      &lt;h3 id=&quot;1-实现动态sql的元素&quot;&gt;&lt;a href=&quot;#1-实现动态sql的元素&quot; class=&quot;headerlink&quot; title=&quot;1.实现动态sql的元素&quot;&gt;&lt;/a&gt;1.实现动态sql的元素&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;if：利用if实现简单的条件选择&lt;/li&gt;
 &lt;li&gt;choose(when，otherwise)：相当于java中的switch语句，通常与when和otherwise搭配&lt;/li&gt;
 &lt;li&gt;where：简化SQL语句中的where的条件判断&lt;/li&gt;
@@ -387,12 +391,11 @@
     <link href="https://starbuck.top/2019/12/13/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/"/>
     <id>https://starbuck.top/2019/12/13/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94SQL%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6/</id>
     <published>2019-12-12T16:00:00.000Z</published>
-    <updated>2020-03-22T01:56:01.467Z</updated>
+    <updated>2020-04-24T02:52:27.794Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Mybatis框架-—-SQL映射文件&quot;&gt;&lt;a href=&quot;#Mybatis框架-—-SQL映射文件&quot; class=&quot;headerlink&quot; title=&quot;Mybatis框架 — SQL映射文件&quot;&gt;&lt;/a&gt;Mybatis框架 — SQL映射文件&lt;/h2&gt;&lt;hr&gt;
-&lt;h3 id=&quot;1-SQL映射文件的几个顶级元素配置&quot;&gt;&lt;a href=&quot;#1-SQL映射文件的几个顶级元素配置&quot; class=&quot;headerlink&quot; title=&quot;1.SQL映射文件的几个顶级元素配置&quot;&gt;&lt;/a&gt;1.SQL映射文件的几个顶级元素配置&lt;/h3&gt;&lt;ul&gt;
+      &lt;h3 id=&quot;1-SQL映射文件的几个顶级元素配置&quot;&gt;&lt;a href=&quot;#1-SQL映射文件的几个顶级元素配置&quot; class=&quot;headerlink&quot; title=&quot;1.SQL映射文件的几个顶级元素配置&quot;&gt;&lt;/a&gt;1.SQL映射文件的几个顶级元素配置&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;mapper：映射文件的根元素节点，只有一个namespace属性，其作用是用于区分不同的mapper；绑定DAO接口，即面向接口编程，当namespace绑定某一接口后，可以不用写该接口的实现类，mybatis会通过接口的完整限定类名查找到对应的mapper配置来执行SQL语句。因此namespace的命名必须要跟接口同名&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;cache：配置给定命名空间的缓存&lt;/p&gt;
@@ -418,12 +421,11 @@
     <link href="https://starbuck.top/2019/12/12/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BMybatis/"/>
     <id>https://starbuck.top/2019/12/12/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BMybatis/</id>
     <published>2019-12-11T16:00:00.000Z</published>
-    <updated>2020-04-24T02:42:55.020Z</updated>
+    <updated>2020-04-24T02:52:16.853Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Mybatis框架-—-初始Mybatis&quot;&gt;&lt;a href=&quot;#Mybatis框架-—-初始Mybatis&quot; class=&quot;headerlink&quot; title=&quot;Mybatis框架 — 初始Mybatis&quot;&gt;&lt;/a&gt;Mybatis框架 — 初始Mybatis&lt;/h2&gt;&lt;hr&gt;
-&lt;h3 id=&quot;1-Mybatis框架及ORM&quot;&gt;&lt;a href=&quot;#1-Mybatis框架及ORM&quot; class=&quot;headerlink&quot; title=&quot;1.Mybatis框架及ORM&quot;&gt;&lt;/a&gt;1.Mybatis框架及ORM&lt;/h3&gt;&lt;h4 id=&quot;1-1-Mybatis框架简介&quot;&gt;&lt;a href=&quot;#1-1-Mybatis框架简介&quot; class=&quot;headerlink&quot; title=&quot;1.1. Mybatis框架简介&quot;&gt;&lt;/a&gt;1.1. Mybatis框架简介&lt;/h4&gt;&lt;p&gt;​                Mybatis是一个开源的数据持久层框架，它的内部封装了通过了JDBC访问数据库的操作，支持普通的SQL查        询、储存过程和高级映射，几乎消除了所有的JDBC代码和参数的手工设置以及结果集的检索。其主要思想是将SQL        语句剥离出来，配置在配置文件中，实现SQL的灵活配置&lt;/p&gt;
+      &lt;h3 id=&quot;1-Mybatis框架及ORM&quot;&gt;&lt;a href=&quot;#1-Mybatis框架及ORM&quot; class=&quot;headerlink&quot; title=&quot;1.Mybatis框架及ORM&quot;&gt;&lt;/a&gt;1.Mybatis框架及ORM&lt;/h3&gt;&lt;h4 id=&quot;1-1-Mybatis框架简介&quot;&gt;&lt;a href=&quot;#1-1-Mybatis框架简介&quot; class=&quot;headerlink&quot; title=&quot;1.1. Mybatis框架简介&quot;&gt;&lt;/a&gt;1.1. Mybatis框架简介&lt;/h4&gt;&lt;p&gt;​                Mybatis是一个开源的数据持久层框架，它的内部封装了通过了JDBC访问数据库的操作，支持普通的SQL查        询、储存过程和高级映射，几乎消除了所有的JDBC代码和参数的手工设置以及结果集的检索。其主要思想是将SQL        语句剥离出来，配置在配置文件中，实现SQL的灵活配置&lt;/p&gt;
     
     </summary>
     

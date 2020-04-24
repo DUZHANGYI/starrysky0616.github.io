@@ -320,8 +320,7 @@
   </div>
   
   <div class="article-entry text-muted" itemprop="description">
-    <h2 id="设计模式—代理模式"><a href="#设计模式—代理模式" class="headerlink" title="设计模式—代理模式"></a>设计模式—代理模式</h2><hr>
-<blockquote>
+    <blockquote>
 <p>代理模式是为某个对象提供一个代理对象，并由代理对象控制对原对象的访问，就像我们生活中的中介。</p>
 <p>例如我要结婚，但是结婚是一件很麻烦的事情，需要安排很多事情，我并不想去准备这些繁琐的事情，只想和心爱的人结婚，其他的事情我还可以出钱交给婚庆公司去准备，婚庆公司为我们安排一整套流程。婚庆公司就相当于我们的代理角色</p>
 </blockquote>
@@ -365,8 +364,7 @@
   </div>
   
   <div class="article-entry text-muted" itemprop="description">
-    <h2 id="设计模式—工厂模式"><a href="#设计模式—工厂模式" class="headerlink" title="设计模式—工厂模式"></a>设计模式—工厂模式</h2><hr>
-<blockquote>
+    <blockquote>
 <p>工厂模式是java最常用的设计模式之一，属于创建型模式，它提供了一种创建对象最佳方式，我们只需要定义一个创建对象的接口，让其子类决定实例化哪一个工厂类。</p>
 </blockquote>
   </div>
@@ -409,8 +407,7 @@
   </div>
   
   <div class="article-entry text-muted" itemprop="description">
-    <h2 id="设计模式—单例模式"><a href="#设计模式—单例模式" class="headerlink" title="设计模式—单例模式"></a>设计模式—单例模式</h2><hr>
-<blockquote>
+    <blockquote>
 <p>单例模式（Singleton Pattern）是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。</p>
 <p><strong>注意</strong></p>
 <ol>
@@ -459,8 +456,7 @@
   </div>
   
   <div class="article-entry text-muted" itemprop="description">
-    <h2 id="SpringCloud微服务入门"><a href="#SpringCloud微服务入门" class="headerlink" title="SpringCloud微服务入门"></a>SpringCloud微服务入门</h2><hr>
-<h3 id="一-什么是SpringCloud"><a href="#一-什么是SpringCloud" class="headerlink" title="一.什么是SpringCloud"></a>一.什么是SpringCloud</h3><blockquote>
+    <h3 id="一-什么是SpringCloud"><a href="#一-什么是SpringCloud" class="headerlink" title="一.什么是SpringCloud"></a>一.什么是SpringCloud</h3><blockquote>
 <p>Spring Cloud是一系列框架的有序集合。它利用Spring Boot的开发便利性巧妙地简化了分布式系统基础设施的开发，如服务发现注册、配置中心、智能路由、消息总线、负载均衡、断路器、数据监控等。Spring Cloud 并不重复造轮子，而是将市面上开发得比较好的模块集成进去，进行封装，从而减少了各模块的开发成本。</p>
 </blockquote>
   </div>
@@ -503,8 +499,7 @@
   </div>
   
   <div class="article-entry text-muted" itemprop="description">
-    <h2 id="SpringBoot框架—SprongBoot集成swagger2"><a href="#SpringBoot框架—SprongBoot集成swagger2" class="headerlink" title="SpringBoot框架—SprongBoot集成swagger2"></a>SpringBoot框架—SprongBoot集成swagger2</h2><hr>
-<h3 id="1-在pom-xml中导入依赖"><a href="#1-在pom-xml中导入依赖" class="headerlink" title="1.在pom.xml中导入依赖"></a>1.在pom.xml中导入依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- swagger2 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- swagger-ui --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    <h3 id="1-在pom-xml中导入依赖"><a href="#1-在pom-xml中导入依赖" class="headerlink" title="1.在pom.xml中导入依赖"></a>1.在pom.xml中导入依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- swagger2 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- swagger-ui --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
   </div>
   
   <p class="article-meta">
@@ -545,8 +540,7 @@
   </div>
   
   <div class="article-entry text-muted" itemprop="description">
-    <h2 id="SpringBoot框架—SpringBoot集成TK-MyBatis"><a href="#SpringBoot框架—SpringBoot集成TK-MyBatis" class="headerlink" title="SpringBoot框架—SpringBoot集成TK_MyBatis"></a>SpringBoot框架—SpringBoot集成TK_MyBatis</h2><hr>
-<h3 id="1-搭建Tk-MyBatis环境"><a href="#1-搭建Tk-MyBatis环境" class="headerlink" title="1.搭建Tk_MyBatis环境"></a>1.搭建Tk_MyBatis环境</h3><ol>
+    <h3 id="1-搭建Tk-MyBatis环境"><a href="#1-搭建Tk-MyBatis环境" class="headerlink" title="1.搭建Tk_MyBatis环境"></a>1.搭建Tk_MyBatis环境</h3><ol>
 <li><p>在pom.xml导入坐标</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>tk.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mapper-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.3-beta1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>tk.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mapper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
   </div>
@@ -589,8 +583,7 @@
   </div>
   
   <div class="article-entry text-muted" itemprop="description">
-    <h2 id="SpringBoot框架-—-初始SpringBoot"><a href="#SpringBoot框架-—-初始SpringBoot" class="headerlink" title="SpringBoot框架 — 初始SpringBoot"></a>SpringBoot框架 — 初始SpringBoot</h2><hr>
-<h3 id="1-搭建SpringBoot"><a href="#1-搭建SpringBoot" class="headerlink" title="1.搭建SpringBoot"></a>1.搭建SpringBoot</h3><ol>
+    <h3 id="1-搭建SpringBoot"><a href="#1-搭建SpringBoot" class="headerlink" title="1.搭建SpringBoot"></a>1.搭建SpringBoot</h3><ol>
 <li><p>使用idea快速搭建spring boot框架</p>
 <p><img src="https://pic.downk.cc/item/5e76c7319d7d586a54735cad.png" alt=""></p>
   </div>
@@ -632,10 +625,6 @@
 
   </div>
   
-  <div class="article-entry text-muted" itemprop="description">
-    <h2 id="SSM框架整合"><a href="#SSM框架整合" class="headerlink" title="SSM框架整合"></a>SSM框架整合</h2><hr>
-  </div>
-  
   <p class="article-meta">
     <span class="article-date">
     <i class="icon icon-calendar-check"></i>
@@ -674,8 +663,7 @@
   </div>
   
   <div class="article-entry text-muted" itemprop="description">
-    <h2 id="SpringMVC框架-—-SpringMVC拓展"><a href="#SpringMVC框架-—-SpringMVC拓展" class="headerlink" title="SpringMVC框架 — SpringMVC拓展"></a>SpringMVC框架 — SpringMVC拓展</h2><hr>
-<h3 id="1-SpringMvc的Model与ModelAndView"><a href="#1-SpringMvc的Model与ModelAndView" class="headerlink" title="1.SpringMvc的Model与ModelAndView"></a>1.SpringMvc的Model与ModelAndView</h3><ol>
+    <h3 id="1-SpringMvc的Model与ModelAndView"><a href="#1-SpringMvc的Model与ModelAndView" class="headerlink" title="1.SpringMvc的Model与ModelAndView"></a>1.SpringMvc的Model与ModelAndView</h3><ol>
 <li>Model：用于接收数据传递到显示页面，需要作为参数传递<ul>
 <li>addAttribute(String name,Object value)：添加键值对属性</li>
 <li>addAttribute(Object obj)：将一个对象存到对象中，把该类名首字母小写作为key值</li>
@@ -727,10 +715,6 @@
     </h1>
   
 
-  </div>
-  
-  <div class="article-entry text-muted" itemprop="description">
-    <h2 id="SpringMVC框架-—-初始SpringMVC"><a href="#SpringMVC框架-—-初始SpringMVC" class="headerlink" title="SpringMVC框架 — 初始SpringMVC"></a>SpringMVC框架 — 初始SpringMVC</h2><hr>
   </div>
   
   <p class="article-meta">
