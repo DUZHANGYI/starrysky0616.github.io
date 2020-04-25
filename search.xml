@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>设计模式—代理模式</title>
+    <title>设计模式—桥接模式</title>
     <url>/2020/01/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<blockquote>
 <p>桥接模式是一种结构型设计模式， 可将一个大类或一系列紧密相关的类拆分为抽象和实现两个独立的层次结构， 从而能在开发时分别使用。</p>
