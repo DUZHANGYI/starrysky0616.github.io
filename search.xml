@@ -2,6 +2,50 @@
 <search>
   <entry>
     <title>设计模式—代理模式</title>
+    <url>/2020/01/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h2 id="设计模式—桥接模式"><a href="#设计模式—桥接模式" class="headerlink" title="设计模式—桥接模式"></a>设计模式—桥接模式</h2><hr>
+<blockquote>
+<p>桥接模式是一种结构型设计模式， 可将一个大类或一系列紧密相关的类拆分为抽象和实现两个独立的层次结构， 从而能在开发时分别使用。</p>
+<p>层次结构中的第一层（通常称为抽象部分）将包含对第二层（实现部分的引用）。抽象部分能将一些对自己的的调用委派给实现部分对象，所有的实现部分都有一个通用接口，因此他们能在抽象部分内部相互替换</p>
+<p>桥接模式在处理跨平台应用、 支持多种类型的数据库服务器或与多个特定种类 （例如云平台和社交网络等） 的 API 供应商协作时会特别有用。</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="1-为什么会有桥接模式"><a href="#1-为什么会有桥接模式" class="headerlink" title="1.为什么会有桥接模式"></a>1.为什么会有桥接模式</h3><blockquote>
+<h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a><strong>问题</strong>：</h4><p>​        假如我有一个电脑类型类，从他扩展出两个子类：<strong>Notebook(笔记本)和Desktop(台式机)</strong>。我现在希望对这些类层次结构进行扩展其品牌，我打算创建名为<strong>Apple(苹果)和HUAWEI(华为)</strong>。但是我已经有了两个子类，所以总共需要创建四个类才能覆盖所有组合。例如：苹果笔记本，苹果台式机，华为笔记本，华为台式机。</p>
+<p>​        <strong>这样的话在层次结构中新增一个品牌就会导致代码复杂程度指数增长</strong>。例如添加一个Lenovo(联想)的品牌，我就需要增加笔记本和台式机两个子类，这样情况会越来越糟糕。</p>
+<h4 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a><strong>解决方案</strong>：</h4><p>​        问题的根本原因试图在两个独立的维度品牌和类型上拓展品牌类。<strong>桥接模式通过将继承改为组合的方式来解决这个问题</strong>。具体讲就是抽取其中一个维度使之成为一个独立的类层次，这样就可以在初始类引用这个新层次的对象，从而使得一个类不必具备所有的状态和行为。</p>
+</blockquote>
+<h3 id="2-代码实现"><a href="#2-代码实现" class="headerlink" title="2.代码实现"></a>2.代码实现</h3><ul>
+<li><p>电脑品牌接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Brand</span> </span>&#123;</span><br><span class="line">  	<span class="comment">//品牌名称</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">info</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>电脑品牌实现类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apple</span> <span class="keyword">implements</span> <span class="title">Brand</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"Apple"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HuaWei</span> <span class="keyword">implements</span> <span class="title">Brand</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"HuaWei"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>抽象的电脑类型</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//组合</span></span><br><span class="line">    <span class="keyword">protected</span> Brand brand;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Computer</span><span class="params">(Brand brand)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.brand=brand;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//自带品牌</span></span><br><span class="line">        brand.info();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//台式机</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Desktop</span> <span class="keyword">extends</span> <span class="title">Computer</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Desktop</span><span class="params">(Brand brand)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(brand);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.info();</span><br><span class="line">        System.out.println(<span class="string">"台式机"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//笔记本</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Notebook</span> <span class="keyword">extends</span> <span class="title">Computer</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Notebook</span><span class="params">(Brand brand)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(brand);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.info();</span><br><span class="line">        System.out.println(<span class="string">"笔记本"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//HuaWei台式机</span></span><br><span class="line">        Computer computer=<span class="keyword">new</span> Desktop(<span class="keyword">new</span> HuaWei());</span><br><span class="line">        computer.info();</span><br><span class="line">        <span class="comment">//Apple笔记本</span></span><br><span class="line">        Computer computer1=<span class="keyword">new</span> Notebook(<span class="keyword">new</span> Apple());</span><br><span class="line">        computer1.info();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>现在我想增加一个品牌只需要写一个继承Brand接口的类就可以实现拥有这个品牌的笔记本和台式机</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>桥接模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式—代理模式</title>
     <url>/2020/01/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<blockquote>
 <p>代理模式是为某个对象提供一个代理对象，并由代理对象控制对原对象的访问，就像我们生活中的中介。</p>

@@ -17,23 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>SpringBoot框架—SpringBoot集成Swagger2 | AaronBlog</title>
-  <meta name="description" content="1.在pom.xml中导入依赖123456789101112&lt;!-- swagger2 --&gt;&lt;dependency&gt;    &lt;groupId&gt;io.springfox&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;springfox-swagger2&lt;&#x2F;artifactId&gt;    &lt;version&gt;2.9.">
+  <title>设计模式—代理模式 | AaronBlog</title>
+  <meta name="description" content="设计模式—桥接模式  桥接模式是一种结构型设计模式， 可将一个大类或一系列紧密相关的类拆分为抽象和实现两个独立的层次结构， 从而能在开发时分别使用。 层次结构中的第一层（通常称为抽象部分）将包含对第二层（实现部分的引用）。抽象部分能将一些对自己的的调用委派给实现部分对象，所有的实现部分都有一个通用接口，因此他们能在抽象部分内部相互替换 桥接模式在处理跨平台应用、 支持多种类型的数据库服务器或与多个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot框架—SpringBoot集成Swagger2">
-<meta property="og:url" content="https://starbuck.top/2020/01/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SprongBoot%E9%9B%86%E6%88%90swagger2/index.html">
+<meta property="og:title" content="设计模式—代理模式">
+<meta property="og:url" content="https://starbuck.top/2020/01/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Aaron Blog">
-<meta property="og:description" content="1.在pom.xml中导入依赖123456789101112&lt;!-- swagger2 --&gt;&lt;dependency&gt;    &lt;groupId&gt;io.springfox&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;springfox-swagger2&lt;&#x2F;artifactId&gt;    &lt;version&gt;2.9.">
+<meta property="og:description" content="设计模式—桥接模式  桥接模式是一种结构型设计模式， 可将一个大类或一系列紧密相关的类拆分为抽象和实现两个独立的层次结构， 从而能在开发时分别使用。 层次结构中的第一层（通常称为抽象部分）将包含对第二层（实现部分的引用）。抽象部分能将一些对自己的的调用委派给实现部分对象，所有的实现部分都有一个通用接口，因此他们能在抽象部分内部相互替换 桥接模式在处理跨平台应用、 支持多种类型的数据库服务器或与多个">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://pic.downk.cc/item/5e76c6b29d7d586a54733260.png">
-<meta property="article:published_time" content="2020-01-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-24T02:54:41.653Z">
+<meta property="article:published_time" content="2020-01-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-25T08:18:23.988Z">
 <meta property="article:author" content="Aaron">
-<meta property="article:tag" content="Swagger2">
+<meta property="article:tag" content="桥接模式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pic.downk.cc/item/5e76c6b29d7d586a54733260.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://starbuck.top/2020/01/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SprongBoot%E9%9B%86%E6%88%90swagger2/index.html">
+  <link rel="canonical" href="https://starbuck.top/2020/01/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Aaron Blog" type="application/atom+xml">
   
@@ -314,14 +312,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-SpringBoot框架—SprongBoot集成swagger2" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-设计模式—桥接模式" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      SpringBoot框架—SpringBoot集成Swagger2
+      设计模式—代理模式
     </h1>
   
 
@@ -329,39 +327,64 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/01/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SprongBoot%E9%9B%86%E6%88%90swagger2/" class="article-date">
-	  <time datetime="2020-01-14T16:00:00.000Z" itemprop="datePublished">2020-01-15</time>
+	<a href="/2020/01/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" class="article-date">
+	  <time datetime="2020-01-24T16:00:00.000Z" itemprop="datePublished">2020-01-25</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/SpringBoot/">SpringBoot</a>
+    <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Swagger2/" rel="tag">Swagger2</a>
+	<a class="article-tag-link" href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" rel="tag">桥接模式</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SprongBoot%E9%9B%86%E6%88%90swagger2/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="1-在pom-xml中导入依赖"><a href="#1-在pom-xml中导入依赖" class="headerlink" title="1.在pom.xml中导入依赖"></a>1.在pom.xml中导入依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- swagger2 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- swagger-ui --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="设计模式—桥接模式"><a href="#设计模式—桥接模式" class="headerlink" title="设计模式—桥接模式"></a>设计模式—桥接模式</h2><hr>
+<blockquote>
+<p>桥接模式是一种结构型设计模式， 可将一个大类或一系列紧密相关的类拆分为抽象和实现两个独立的层次结构， 从而能在开发时分别使用。</p>
+<p>层次结构中的第一层（通常称为抽象部分）将包含对第二层（实现部分的引用）。抽象部分能将一些对自己的的调用委派给实现部分对象，所有的实现部分都有一个通用接口，因此他们能在抽象部分内部相互替换</p>
+<p>桥接模式在处理跨平台应用、 支持多种类型的数据库服务器或与多个特定种类 （例如云平台和社交网络等） 的 API 供应商协作时会特别有用。</p>
+</blockquote>
 <a id="more"></a>
 
-<h3 id="2-编写SwaggerConfig类"><a href="#2-编写SwaggerConfig类" class="headerlink" title="2.编写SwaggerConfig类"></a>2.编写SwaggerConfig类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger</span>2</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建API应用</span></span><br><span class="line"><span class="comment">     * apiInfo() 增加API相关信息</span></span><br><span class="line"><span class="comment">     * 通过select()函数返回一个ApiSelectorBuilder实例,用来控制哪些接口暴露给Swagger来展现，</span></span><br><span class="line"><span class="comment">     * 本例采用指定扫描的包路径来定义指定要建立API的目录。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: Docket</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">createRestApi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.basePackage(<span class="string">"com.accp.controller"</span>))</span><br><span class="line">                .paths(PathSelectors.any())</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建该API的基本信息（这些基本信息会展现在文档页面中）</span></span><br><span class="line"><span class="comment">     * 访问地址：http://项目实际地址/swagger-ui.html</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>: ApiInfo</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder()</span><br><span class="line">                .title(<span class="string">"Spring Boot中使用Swagger2"</span>)</span><br><span class="line">                .description(<span class="string">"更多请关注http://www.baidu.com"</span>)</span><br><span class="line">                .termsOfServiceUrl(<span class="string">"http://www.baidu.com"</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-为什么会有桥接模式"><a href="#1-为什么会有桥接模式" class="headerlink" title="1.为什么会有桥接模式"></a>1.为什么会有桥接模式</h3><blockquote>
+<h4 id="问题："><a href="#问题：" class="headerlink" title="问题："></a><strong>问题</strong>：</h4><p>​        假如我有一个电脑类型类，从他扩展出两个子类：<strong>Notebook(笔记本)和Desktop(台式机)</strong>。我现在希望对这些类层次结构进行扩展其品牌，我打算创建名为<strong>Apple(苹果)和HUAWEI(华为)</strong>。但是我已经有了两个子类，所以总共需要创建四个类才能覆盖所有组合。例如：苹果笔记本，苹果台式机，华为笔记本，华为台式机。</p>
+<p>​        <strong>这样的话在层次结构中新增一个品牌就会导致代码复杂程度指数增长</strong>。例如添加一个Lenovo(联想)的品牌，我就需要增加笔记本和台式机两个子类，这样情况会越来越糟糕。</p>
+<h4 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a><strong>解决方案</strong>：</h4><p>​        问题的根本原因试图在两个独立的维度品牌和类型上拓展品牌类。<strong>桥接模式通过将继承改为组合的方式来解决这个问题</strong>。具体讲就是抽取其中一个维度使之成为一个独立的类层次，这样就可以在初始类引用这个新层次的对象，从而使得一个类不必具备所有的状态和行为。</p>
+</blockquote>
+<h3 id="2-代码实现"><a href="#2-代码实现" class="headerlink" title="2.代码实现"></a>2.代码实现</h3><ul>
+<li><p>电脑品牌接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Brand</span> </span>&#123;</span><br><span class="line">  	<span class="comment">//品牌名称</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">info</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>电脑品牌实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apple</span> <span class="keyword">implements</span> <span class="title">Brand</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"Apple"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-使用Restful风格编写Controller"><a href="#3-使用Restful风格编写Controller" class="headerlink" title="3.使用Restful风格编写Controller"></a>3.使用Restful风格编写Controller</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"login"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Result result;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation</span>(value=<span class="string">"查询"</span>,notes = <span class="string">"查询用户列表"</span>)</span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"findUser"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Result <span class="title">findUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;User&gt; user = userService.findUser();</span><br><span class="line">        result.setCode(<span class="number">1</span>);</span><br><span class="line">        result.setMsg(<span class="string">"success"</span>);</span><br><span class="line">        result.setData(user);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiOperation</span>(value=<span class="string">"删除"</span>,notes = <span class="string">"删除用户"</span>)</span><br><span class="line">    <span class="meta">@DeleteMapping</span>(<span class="string">"del/&#123;redisKey&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">del</span><span class="params">(@PathVariable String redisKey)</span> </span>&#123;</span><br><span class="line">        userService.delCache(redisKey);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HuaWei</span> <span class="keyword">implements</span> <span class="title">Brand</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"HuaWei"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>抽象的电脑类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//组合</span></span><br><span class="line">    <span class="keyword">protected</span> Brand brand;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Computer</span><span class="params">(Brand brand)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.brand=brand;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//自带品牌</span></span><br><span class="line">        brand.info();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//台式机</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Desktop</span> <span class="keyword">extends</span> <span class="title">Computer</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Desktop</span><span class="params">(Brand brand)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(brand);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.info();</span><br><span class="line">        System.out.println(<span class="string">"台式机"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//笔记本</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Notebook</span> <span class="keyword">extends</span> <span class="title">Computer</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Notebook</span><span class="params">(Brand brand)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(brand);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.info();</span><br><span class="line">        System.out.println(<span class="string">"笔记本"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//HuaWei台式机</span></span><br><span class="line">        Computer computer=<span class="keyword">new</span> Desktop(<span class="keyword">new</span> HuaWei());</span><br><span class="line">        computer.info();</span><br><span class="line">        <span class="comment">//Apple笔记本</span></span><br><span class="line">        Computer computer1=<span class="keyword">new</span> Notebook(<span class="keyword">new</span> Apple());</span><br><span class="line">        computer1.info();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-启动项目访问Swagger—ui"><a href="#4-启动项目访问Swagger—ui" class="headerlink" title="4.启动项目访问Swagger—ui"></a>4.启动项目访问Swagger—ui</h3><p><img src="https://pic.downk.cc/item/5e76c6b29d7d586a54733260.png" alt=""></p>
+<blockquote>
+<p>现在我想增加一个品牌只需要写一个继承Brand接口的类就可以实现拥有这个品牌的笔记本和台式机</p>
+</blockquote>
+</li>
+</ul>
 
       
     </div>
@@ -371,7 +394,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://starbuck.top/2020/01/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SprongBoot%E9%9B%86%E6%88%90swagger2/" title="SpringBoot框架—SpringBoot集成Swagger2" target="_blank" rel="external">https://starbuck.top/2020/01/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SprongBoot%E9%9B%86%E6%88%90swagger2/</a>
+      <a href="https://starbuck.top/2020/01/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" title="设计模式—代理模式" target="_blank" rel="external">https://starbuck.top/2020/01/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -417,13 +440,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/01/18/SpringCloud%E5%BE%AE%E6%9C%8D%E5%8A%A1/" title="SpringCloud微服务入门"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2020/01/12/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90TK_MyBatis/" title="SpringBoot框架—SpringBoot集成TK_MyBatis"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/01/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" title="设计模式—代理模式"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
