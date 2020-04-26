@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://starbuck.top/"/>
-  <updated>2020-04-25T08:25:00.127Z</updated>
+  <updated>2020-04-26T12:12:08.330Z</updated>
   <id>https://starbuck.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式—适配器模式</title>
+    <link href="https://starbuck.top/2020/01/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://starbuck.top/2020/01/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</id>
+    <published>2020-01-25T16:00:00.000Z</published>
+    <updated>2020-04-26T12:12:08.330Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;适配器模式是一种结构性设计模式，它能使接口不兼容的对象能够相互合作。适配器通过封装对象将复杂的转换过程隐藏于幕后。被封装的对象甚至察觉不到适配器的存在。适配器不仅可以转换不同格式的数据，其还有助于采用不同接口的对象之间的合作。它的运作方式如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;适配器实现于其中一个对象兼容的接口&lt;/li&gt;
+&lt;li&gt;现有对象可以使用该接口安全调用适配器方法&lt;/li&gt;
+&lt;li&gt;适配器方法被调用后将以另一个对象兼容的格式和顺序将请求传递给对象&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="设计模式" scheme="https://starbuck.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="适配器模式" scheme="https://starbuck.top/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式—桥接模式</title>

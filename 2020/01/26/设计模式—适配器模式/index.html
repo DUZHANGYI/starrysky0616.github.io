@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>SpringMVC框架 — SpringMVC拓展 | AaronBlog</title>
-  <meta name="description" content="1.SpringMvc的Model与ModelAndView Model：用于接收数据传递到显示页面，需要作为参数传递 addAttribute(String name,Object value)：添加键值对属性 addAttribute(Object obj)：将一个对象存到对象中，把该类名首字母小写作为key值 asMap()：将当前model转换为Map mergeAttribute(Map">
+  <title>设计模式—适配器模式 | AaronBlog</title>
+  <meta name="description" content="适配器模式是一种结构性设计模式，它能使接口不兼容的对象能够相互合作。适配器通过封装对象将复杂的转换过程隐藏于幕后。被封装的对象甚至察觉不到适配器的存在。适配器不仅可以转换不同格式的数据，其还有助于采用不同接口的对象之间的合作。它的运作方式如下：  适配器实现于其中一个对象兼容的接口 现有对象可以使用该接口安全调用适配器方法 适配器方法被调用后将以另一个对象兼容的格式和顺序将请求传递给对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringMVC框架 — SpringMVC拓展">
-<meta property="og:url" content="https://starbuck.top/2019/12/19/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/index.html">
+<meta property="og:title" content="设计模式—适配器模式">
+<meta property="og:url" content="https://starbuck.top/2020/01/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Aaron Blog">
-<meta property="og:description" content="1.SpringMvc的Model与ModelAndView Model：用于接收数据传递到显示页面，需要作为参数传递 addAttribute(String name,Object value)：添加键值对属性 addAttribute(Object obj)：将一个对象存到对象中，把该类名首字母小写作为key值 asMap()：将当前model转换为Map mergeAttribute(Map">
+<meta property="og:description" content="适配器模式是一种结构性设计模式，它能使接口不兼容的对象能够相互合作。适配器通过封装对象将复杂的转换过程隐藏于幕后。被封装的对象甚至察觉不到适配器的存在。适配器不仅可以转换不同格式的数据，其还有助于采用不同接口的对象之间的合作。它的运作方式如下：  适配器实现于其中一个对象兼容的接口 现有对象可以使用该接口安全调用适配器方法 适配器方法被调用后将以另一个对象兼容的格式和顺序将请求传递给对象">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-12-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-24T02:54:53.475Z">
+<meta property="article:published_time" content="2020-01-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-26T12:12:08.330Z">
 <meta property="article:author" content="Aaron">
-<meta property="article:tag" content="SpringMVC">
+<meta property="article:tag" content="适配器模式">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://starbuck.top/2019/12/19/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/index.html">
+  <link rel="canonical" href="https://starbuck.top/2020/01/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Aaron Blog" type="application/atom+xml">
   
@@ -312,14 +312,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-SpringMVC框架—SpringMVC拓展" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-设计模式—适配器模式" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      SpringMVC框架 — SpringMVC拓展
+      设计模式—适配器模式
     </h1>
   
 
@@ -327,65 +327,75 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/12/19/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/" class="article-date">
-	  <time datetime="2019-12-18T16:00:00.000Z" itemprop="datePublished">2019-12-19</time>
+	<a href="/2020/01/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" class="article-date">
+	  <time datetime="2020-01-25T16:00:00.000Z" itemprop="datePublished">2020-01-26</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/SSM/">SSM</a>
+    <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/SpringMVC/" rel="tag">SpringMVC</a>
+	<a class="article-tag-link" href="/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">适配器模式</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/19/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/01/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="1-SpringMvc的Model与ModelAndView"><a href="#1-SpringMvc的Model与ModelAndView" class="headerlink" title="1.SpringMvc的Model与ModelAndView"></a>1.SpringMvc的Model与ModelAndView</h3><ol>
-<li>Model：用于接收数据传递到显示页面，需要作为参数传递<ul>
-<li>addAttribute(String name,Object value)：添加键值对属性</li>
-<li>addAttribute(Object obj)：将一个对象存到对象中，把该类名首字母小写作为key值</li>
-<li>asMap()：将当前model转换为Map</li>
-<li>mergeAttribute(Map &lt;String,?&gt; hashmap)：和addAttribute相同，但允许有相同的key值</li>
-<li>containsAttribute(String name)：判断model中是否包含一个键值对，返回boolean</li>
-</ul>
-</li>
-<li>ModelAndView：将控制器处理的结果数据返回到显示页面，作为返回类型使用，也可设置转向地址<ul>
-<li>setViewName(String  path)：设置转向地址</li>
-<li>addObject(String  name , Object value)：将控制器处理的结果数据返回到显示页面</li>
-</ul>
-</li>
+        <blockquote>
+<p>适配器模式是一种结构性设计模式，它能使接口不兼容的对象能够相互合作。适配器通过封装对象将复杂的转换过程隐藏于幕后。被封装的对象甚至察觉不到适配器的存在。适配器不仅可以转换不同格式的数据，其还有助于采用不同接口的对象之间的合作。它的运作方式如下：</p>
+<ol>
+<li>适配器实现于其中一个对象兼容的接口</li>
+<li>现有对象可以使用该接口安全调用适配器方法</li>
+<li>适配器方法被调用后将以另一个对象兼容的格式和顺序将请求传递给对象</li>
 </ol>
+</blockquote>
 <a id="more"></a>
 
-<h3 id="2-JSON数据传递处理"><a href="#2-JSON数据传递处理" class="headerlink" title="2.JSON数据传递处理"></a>2.JSON数据传递处理</h3><ol>
-<li>在方法上加@ResponseBody，通过JSON.toJSONString()将数据转换为json格式</li>
-<li>解决json数据传递乱码问题：在@RequestMapping里面加  produces = {“application/json;charset=UTF-8”}</li>
-<li>解决json数据传递日期问题：在属性上加 @JSONField(format = “yyyy-MM-dd”)</li>
-</ol>
-<h3 id="3-SpringMVC文件上传"><a href="#3-SpringMVC文件上传" class="headerlink" title="3.SpringMVC文件上传"></a>3.SpringMVC文件上传</h3><ol>
-<li><p>导入maven坐标</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-fileupload<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-代码实现"><a href="#1-代码实现" class="headerlink" title="1.代码实现"></a>1.代码实现</h3><blockquote>
+<p>生活例子：现在有一个轻薄本想要连接网线来上网，但是没有网线接口，所以我们需要买一根转换器来连接网线让我们上网</p>
+</blockquote>
+<ul>
+<li><p>创建一个电脑类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">net</span><span class="params">(NetToTypeC netToTypeC)</span></span>&#123;</span><br><span class="line">        <span class="comment">//找一个转接头连接上网</span></span><br><span class="line">        netToTypeC.handleRequest();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>springmvc.xml配置CommonsMultipartResolver</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"multipartResolver"</span></span></span><br><span class="line"><span class="tag"><span class="attr">class</span>=<span class="string">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--上传文件的最大大小，单位为字节 --&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxUploadSize"</span> <span class="attr">value</span>=<span class="string">"17367648787"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 上传文件的编码 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"defaultEncoding"</span> <span class="attr">value</span>=<span class="string">"UTF-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><p>创建一个被适配的类：网线</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReticleAdapted</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">request</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"连上网线上网"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>设置前端jsp页面：input的type设置为file，from表单的enctype设置为multipart/form-data</p>
+<li><p>创建一个转换器接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">NetToTypeC</span> </span>&#123;</span><br><span class="line">    <span class="comment">//作用：处理请求</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Controller层使用MultipartFile对象作为参数，接收前端发送过来的文件，将文件写入本地文件中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/uploadFile"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">uploadFile</span><span class="params">(@RequestParam(<span class="string">"file"</span>)</span> MultipartFile file, HttpServletRequest req)</span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> IllegalStateException, IOException </span>&#123;</span><br><span class="line">    <span class="comment">// 判断文件是否为空，空则返回失败页面</span></span><br><span class="line">    <span class="keyword">if</span> (file.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"失败页面"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取文件存储路径（绝对路径）</span></span><br><span class="line">    String path = req.getSession().getServletContext().getRealPath(<span class="string">"/WEB-INF/file"</span>);</span><br><span class="line">    <span class="comment">// 获取原文件名</span></span><br><span class="line">    String fileName = file.getOriginalFilename();</span><br><span class="line">    <span class="comment">// 创建文件实例</span></span><br><span class="line">    File filePath = <span class="keyword">new</span> File(path, fileName);</span><br><span class="line">    <span class="comment">// 如果文件目录不存在，创建目录</span></span><br><span class="line">    <span class="keyword">if</span> (!filePath.getParentFile().exists()) &#123;</span><br><span class="line">        filePath.getParentFile().mkdirs();</span><br><span class="line">        System.out.println(<span class="string">"创建目录"</span> + filePath);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 写入文件</span></span><br><span class="line">    file.transferTo(filePath);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"成功页面"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
+<li><p>创建真正的适配器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Adapter</span> <span class="keyword">implements</span> <span class="title">NetToTypeC</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ReticleAdapted reticleAdapted;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Adapter</span><span class="params">(ReticleAdapted reticleAdapted)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.reticleAdapted = reticleAdapted;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        reticleAdapted.request();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//电脑 网线 转换器</span></span><br><span class="line">        Computer computer = <span class="keyword">new</span> Computer();</span><br><span class="line">        ReticleAdapted reticleAdapted = <span class="keyword">new</span> ReticleAdapted();</span><br><span class="line">        Adapter adapter = <span class="keyword">new</span> Adapter(reticleAdapted);</span><br><span class="line"></span><br><span class="line">        computer.net(adapter);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="2-适配器适用性"><a href="#2-适配器适用性" class="headerlink" title="2.适配器适用性"></a>2.适配器适用性</h3><ul>
+<li><p>当你希望使用某个类，但是其接口与其他代码不兼容时，可以使用适配器类</p>
+<p>适配器模式允许你创建一个中间层类，其可以作为代码与遗留类，第三方类或提供怪异接口的类之间的转换器</p>
+</li>
+<li><p>当你希望复用多个由于缺少相同功能而无法被添加到已有子类时，可以使用该模式</p>
+<p>你可以扩展每个子类，将缺少的功能添加到新的子类中。但是你必须在所有新子类中重复添加这些代码，这样会使得代码有臃肿</p>
+<p>将缺失功能添加到一个适配类中是一种解决方案。然后你可以将缺少功能的对象封装在适配器中，从而动态的获取所需功能。如果要这一点正常运作，目标类必须要有通用的接口，适配器的成员变量应当遵循该通用接口，这种模式与装饰模式非常相似</p>
+</li>
+</ul>
+<h3 id="3-对象适配器优点"><a href="#3-对象适配器优点" class="headerlink" title="3.对象适配器优点"></a>3.对象适配器优点</h3><ul>
+<li>一个对象适配器可以把多个不同适配者适配到同一个目标</li>
+<li>可以适配一个适配者的子类，由于适配器和适配者之间是关联关系，根据里氏替换原则，适配者子类也可通过该适配器适配</li>
+</ul>
 
       
     </div>
@@ -395,7 +405,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://starbuck.top/2019/12/19/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/" title="SpringMVC框架 — SpringMVC拓展" target="_blank" rel="external">https://starbuck.top/2019/12/19/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94SpringMVC%E6%8B%93%E5%B1%95/</a>
+      <a href="https://starbuck.top/2020/01/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" title="设计模式—适配器模式" target="_blank" rel="external">https://starbuck.top/2020/01/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -441,13 +451,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2019/12/20/SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88/" title="SSM框架整合"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2019/12/18/SpringMVC%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BSpringMVC/" title="SpringMVC框架 —  初始SpringMVC"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/01/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" title="设计模式—桥接模式"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

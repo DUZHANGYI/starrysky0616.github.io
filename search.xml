@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>设计模式—适配器模式</title>
+    <url>/2020/01/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<blockquote>
+<p>适配器模式是一种结构性设计模式，它能使接口不兼容的对象能够相互合作。适配器通过封装对象将复杂的转换过程隐藏于幕后。被封装的对象甚至察觉不到适配器的存在。适配器不仅可以转换不同格式的数据，其还有助于采用不同接口的对象之间的合作。它的运作方式如下：</p>
+<ol>
+<li>适配器实现于其中一个对象兼容的接口</li>
+<li>现有对象可以使用该接口安全调用适配器方法</li>
+<li>适配器方法被调用后将以另一个对象兼容的格式和顺序将请求传递给对象</li>
+</ol>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="1-代码实现"><a href="#1-代码实现" class="headerlink" title="1.代码实现"></a>1.代码实现</h3><blockquote>
+<p>生活例子：现在有一个轻薄本想要连接网线来上网，但是没有网线接口，所以我们需要买一根转换器来连接网线让我们上网</p>
+</blockquote>
+<ul>
+<li><p>创建一个电脑类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">net</span><span class="params">(NetToTypeC netToTypeC)</span></span>&#123;</span><br><span class="line">        <span class="comment">//找一个转接头连接上网</span></span><br><span class="line">        netToTypeC.handleRequest();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个被适配的类：网线</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReticleAdapted</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">request</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"连上网线上网"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个转换器接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">NetToTypeC</span> </span>&#123;</span><br><span class="line">    <span class="comment">//作用：处理请求</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建真正的适配器</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Adapter</span> <span class="keyword">implements</span> <span class="title">NetToTypeC</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ReticleAdapted reticleAdapted;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Adapter</span><span class="params">(ReticleAdapted reticleAdapted)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.reticleAdapted = reticleAdapted;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        reticleAdapted.request();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//电脑 网线 转换器</span></span><br><span class="line">        Computer computer = <span class="keyword">new</span> Computer();</span><br><span class="line">        ReticleAdapted reticleAdapted = <span class="keyword">new</span> ReticleAdapted();</span><br><span class="line">        Adapter adapter = <span class="keyword">new</span> Adapter(reticleAdapted);</span><br><span class="line"></span><br><span class="line">        computer.net(adapter);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="2-适配器适用性"><a href="#2-适配器适用性" class="headerlink" title="2.适配器适用性"></a>2.适配器适用性</h3><ul>
+<li><p>当你希望使用某个类，但是其接口与其他代码不兼容时，可以使用适配器类</p>
+<p>适配器模式允许你创建一个中间层类，其可以作为代码与遗留类，第三方类或提供怪异接口的类之间的转换器</p>
+</li>
+<li><p>当你希望复用多个由于缺少相同功能而无法被添加到已有子类时，可以使用该模式</p>
+<p>你可以扩展每个子类，将缺少的功能添加到新的子类中。但是你必须在所有新子类中重复添加这些代码，这样会使得代码有臃肿</p>
+<p>将缺失功能添加到一个适配类中是一种解决方案。然后你可以将缺少功能的对象封装在适配器中，从而动态的获取所需功能。如果要这一点正常运作，目标类必须要有通用的接口，适配器的成员变量应当遵循该通用接口，这种模式与装饰模式非常相似</p>
+</li>
+</ul>
+<h3 id="3-对象适配器优点"><a href="#3-对象适配器优点" class="headerlink" title="3.对象适配器优点"></a>3.对象适配器优点</h3><ul>
+<li>一个对象适配器可以把多个不同适配者适配到同一个目标</li>
+<li>可以适配一个适配者的子类，由于适配器和适配者之间是关联关系，根据里氏替换原则，适配者子类也可通过该适配器适配</li>
+</ul>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>适配器模式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>设计模式—桥接模式</title>
     <url>/2020/01/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<blockquote>
