@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://starbuck.top/"/>
-  <updated>2020-04-26T12:12:08.330Z</updated>
+  <updated>2020-05-31T08:33:31.508Z</updated>
   <id>https://starbuck.top/</id>
   
   <author>
@@ -15,6 +15,75 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ElasticSearch实战JD</title>
+    <link href="https://starbuck.top/2020/02/17/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94ElasticSearch%E5%AE%9E%E6%88%98JD/"/>
+    <id>https://starbuck.top/2020/02/17/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94ElasticSearch%E5%AE%9E%E6%88%98JD/</id>
+    <published>2020-02-16T16:00:00.000Z</published>
+    <updated>2020-05-31T08:33:31.508Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;在前面我们已经学习了如何安装使用ElasticSearch，今天我们就来上手实战，仿照京东搜索页面完成一个实战项目(注意启动我们的ElasticSearch)。不明白如何操作的请查看我之前文章初识&lt;a href=&quot;https://blog.csdn.net/weixin_45900008/article/details/106353530&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ElasticSearch-7.6.x搜索引擎&lt;/a&gt;和&lt;a href=&quot;https://blog.csdn.net/weixin_45900008/article/details/106353950&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SpringBoot集成ElasticSearch&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="搜索引擎" scheme="https://starbuck.top/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
+    
+    
+      <category term="ElasticSearch" scheme="https://starbuck.top/tags/ElasticSearch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot集成ElasticSearch</title>
+    <link href="https://starbuck.top/2020/02/16/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90ElasticSearch/"/>
+    <id>https://starbuck.top/2020/02/16/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90ElasticSearch/</id>
+    <published>2020-02-15T16:00:00.000Z</published>
+    <updated>2020-05-31T08:33:34.577Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;在上一章我们已经学习了ElasticSearch基本使用，现在我们来看看如何在java中使用ElasticSearch。使用前先启动ElasticSearch和ElasticSearch-Head（为了方便我们查看数据），不知道怎么做的可以参考&lt;a href=&quot;https://blog.csdn.net/weixin_45900008/article/details/106353530&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;上一章&lt;/a&gt;（注意：本次测试环境使用的是JDK1.8+SpringBoot2.2.5.RELEASE+ElasticSearch7.6.1）&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="搜索引擎" scheme="https://starbuck.top/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
+    
+    
+      <category term="ElasticSearch" scheme="https://starbuck.top/tags/ElasticSearch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ElasticSearch-7.6.x搜索引擎</title>
+    <link href="https://starbuck.top/2020/02/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BElasticSearch%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
+    <id>https://starbuck.top/2020/02/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BElasticSearch%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</id>
+    <published>2020-02-15T05:43:23.000Z</published>
+    <updated>2020-05-31T08:34:41.842Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Elasticsearch是一个用Java语言开发的基于Lucene的搜索服务器。 是一个分布式、RESTful 风格的搜索和数据分析引擎,作为 Elastic Stack 的核心,它集中存储我们的数据。是一种流行的企业级搜索引擎。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="搜索引擎" scheme="https://starbuck.top/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
+    
+    
+      <category term="ElasticSearch" scheme="https://starbuck.top/tags/ElasticSearch/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式—适配器模式</title>
@@ -458,27 +527,6 @@
 &lt;li&gt;&lt;p&gt;resultMap：用来描述数据库结果集和对象的对应关系&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;sql：可重用的SQL块，也可以被其他语句引用&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="SSM" scheme="https://starbuck.top/categories/SSM/"/>
-    
-    
-      <category term="Mybatis" scheme="https://starbuck.top/tags/Mybatis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mybatis框架 — 初始Mybatis</title>
-    <link href="https://starbuck.top/2019/12/12/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BMybatis/"/>
-    <id>https://starbuck.top/2019/12/12/Mybatis%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BMybatis/</id>
-    <published>2019-12-11T16:00:00.000Z</published>
-    <updated>2020-04-24T02:52:16.853Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;1-Mybatis框架及ORM&quot;&gt;&lt;a href=&quot;#1-Mybatis框架及ORM&quot; class=&quot;headerlink&quot; title=&quot;1.Mybatis框架及ORM&quot;&gt;&lt;/a&gt;1.Mybatis框架及ORM&lt;/h3&gt;&lt;h4 id=&quot;1-1-Mybatis框架简介&quot;&gt;&lt;a href=&quot;#1-1-Mybatis框架简介&quot; class=&quot;headerlink&quot; title=&quot;1.1. Mybatis框架简介&quot;&gt;&lt;/a&gt;1.1. Mybatis框架简介&lt;/h4&gt;&lt;p&gt;​                Mybatis是一个开源的数据持久层框架，它的内部封装了通过了JDBC访问数据库的操作，支持普通的SQL查        询、储存过程和高级映射，几乎消除了所有的JDBC代码和参数的手工设置以及结果集的检索。其主要思想是将SQL        语句剥离出来，配置在配置文件中，实现SQL的灵活配置&lt;/p&gt;
     
     </summary>
     

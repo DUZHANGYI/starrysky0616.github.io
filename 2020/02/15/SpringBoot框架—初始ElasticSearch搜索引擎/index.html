@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>ElasticSearch-7.6.x搜索引擎 | AaronBlog</title>
+  <meta name="description" content="Elasticsearch是一个用Java语言开发的基于Lucene的搜索服务器。 是一个分布式、RESTful 风格的搜索和数据分析引擎,作为 Elastic Stack 的核心,它集中存储我们的数据。是一种流行的企业级搜索引擎。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ElasticSearch-7.6.x搜索引擎">
+<meta property="og:url" content="https://starbuck.top/2020/02/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BElasticSearch%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/index.html">
+<meta property="og:site_name" content="Aaron Blog">
+<meta property="og:description" content="Elasticsearch是一个用Java语言开发的基于Lucene的搜索服务器。 是一个分布式、RESTful 风格的搜索和数据分析引擎,作为 Elastic Stack 的核心,它集中存储我们的数据。是一种流行的企业级搜索引擎。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/26/IgisMe7k4bYLmcV.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/26/ENHqIKcjeZ5dJzp.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/26/9M1PtThBmzNJk8R.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/26/G6LIgP4bJtFcuUl.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/26/cp6CTJi7mr43vKN.png">
+<meta property="article:published_time" content="2020-02-15T05:43:23.000Z">
+<meta property="article:modified_time" content="2020-05-31T08:34:41.842Z">
+<meta property="article:author" content="Aaron">
+<meta property="article:tag" content="ElasticSearch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/26/IgisMe7k4bYLmcV.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://starbuck.top/2020/02/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BElasticSearch%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Aaron Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/logo.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://mp.csdn.net/console/article" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Aaron</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">never give up</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 湖北武汉</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/starrysky0616" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>个人学习博客</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SSM/">SSM</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot/">SpringBoot</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SrpingCloud/">SrpingCloud</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSM/" rel="tag">SSM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringMVC/" rel="tag">SpringMVC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swagger2/" rel="tag">Swagger2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TK-MyBatis/" rel="tag">TK_MyBatis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" rel="tag">代理模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="tag">单例模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" rel="tag">工厂模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" rel="tag">桥接模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">适配器模式</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/ElasticSearch/" style="font-size: 14px;">ElasticSearch</a> <a href="/tags/Mybatis/" style="font-size: 14px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 13px;">SSM</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 13px;">SpringBoot</a> <a href="/tags/SpringMVC/" style="font-size: 13.5px;">SpringMVC</a> <a href="/tags/Swagger2/" style="font-size: 13px;">Swagger2</a> <a href="/tags/TK-MyBatis/" style="font-size: 13px;">TK_MyBatis</a> <a href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">代理模式</a> <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">单例模式</a> <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">工厂模式</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 13px;">微服务</a> <a href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">桥接模式</a> <a href="/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">适配器模式</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/02/17/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94ElasticSearch%E5%AE%9E%E6%88%98JD/" class="title">ElasticSearch实战JD</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-16T16:00:00.000Z" itemprop="datePublished">2020-02-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/02/16/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90ElasticSearch/" class="title">SpringBoot集成ElasticSearch</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-15T16:00:00.000Z" itemprop="datePublished">2020-02-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/02/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BElasticSearch%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" class="title">ElasticSearch-7.6.x搜索引擎</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-15T05:43:23.000Z" itemprop="datePublished">2020-02-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/01/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" class="title">设计模式—适配器模式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-01-25T16:00:00.000Z" itemprop="datePublished">2020-01-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/01/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" class="title">设计模式—桥接模式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-01-24T16:00:00.000Z" itemprop="datePublished">2020-01-25</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-SpringBoot框架—初始ElasticSearch搜索引擎" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ElasticSearch-7.6.x搜索引擎
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/02/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BElasticSearch%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" class="article-date">
+	  <time datetime="2020-02-15T05:43:23.000Z" itemprop="datePublished">2020-02-15</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/02/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BElasticSearch%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <blockquote>
+<p>Elasticsearch是一个用Java语言开发的基于Lucene的搜索服务器。 是一个分布式、RESTful 风格的搜索和数据分析引擎,作为 Elastic Stack 的核心,它集中存储我们的数据。是一种流行的企业级搜索引擎。</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="1-如何使用ElasticSearch"><a href="#1-如何使用ElasticSearch" class="headerlink" title="1.如何使用ElasticSearch"></a>1.如何使用ElasticSearch</h3><ul>
+<li><p>下载<a href="https://www.elastic.co/cn/downloads/elasticsearch" target="_blank" rel="noopener">elasticsearch-7.6.1</a>，切换到bin目录执行 elasticsearch.bat 执行文件（注意：此版本最低需要jdk1.8，不要关闭黑窗口），执行完毕后在浏览器输入<strong>127.0.0.1:9200</strong>后可看到如下界面即启动成功<img src="https://i.loli.net/2020/05/26/IgisMe7k4bYLmcV.png" alt=""></p>
+</li>
+<li><p>下载<a href="https://github.com/medcl/elasticsearch-analysis-ik" target="_blank" rel="noopener">elasticsearch-analysis-ik-7.6.1</a>分词器放到我们的elasticsearch的plugins下即可</p>
+</li>
+<li><p>下载<a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="noopener">elasticsearch-head</a>，打开cmd切换到elasticsearch-head的安装目录下执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm run start</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，elasticsearch 在端口9200上公开一个http rest API，elasticsearch-head连接到该端口，由于我们在不同端口下进行操作所有需要进行一下CORS跨域。所以我们需要在在elasticsearch 的config目录下找到elasticsearch.yml在尾部加入以下配置。执行完成后在浏览器输入<strong>localhost:9100</strong>可看到如下页面即启动成功</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">http.cors.enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">http.cors.allow-origin:</span> <span class="string">"*"</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/05/26/ENHqIKcjeZ5dJzp.png" alt="image-20200526101706115"></p>
+</li>
+<li><p>下载<a href="https://www.elastic.co/downloads/kibana" target="_blank" rel="noopener">Kibana-7.6.1</a>，切换到bin目录下执行bibana.bat,执行完毕后在浏览器输入<strong>localhost:5601</strong>可看到如下页面即启动成功（more默认是英文的页面，可在config下的kibana.yml中配置  <strong>i18n.locale: “zh-CN”</strong>）<img src="https://i.loli.net/2020/05/26/9M1PtThBmzNJk8R.png" alt="image-20200526103154991"></p>
+</li>
+</ul>
+<p>###2.使用Kibana测试ElasticSearch的基本API</p>
+<ol>
+<li><p>测试ik分词器（其中<strong>ik_smart</strong>为最小切分,<strong>ik_max_word</strong>为穷尽词库的可能）</p>
+<p><img src="https://i.loli.net/2020/05/26/G6LIgP4bJtFcuUl.png" alt="image-20200526105833800"></p>
+<p><img src="https://i.loli.net/2020/05/26/cp6CTJi7mr43vKN.png" alt="image-20200526110023900"></p>
+</li>
+<li><p>创建索引</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PUT /user</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除索引</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE /user</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取索引</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /user</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>向索引中插入数据</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PUT /user/_doc/<span class="number">1</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"aaron"</span>,</span><br><span class="line">  <span class="string">"age"</span>: <span class="number">18</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改索引中的数据</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">POST /user/_doc/<span class="number">1</span>/_update</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"doc"</span>: &#123;</span><br><span class="line">     <span class="string">"name"</span>: <span class="string">"MrDu"</span>,</span><br><span class="line">     <span class="string">"age"</span>: <span class="number">18</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取索引中的数据</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /user/_doc/<span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除索引中的数据</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE /user/_doc/<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="3-使用使用Kibana测试ElasticSearch的复杂查询"><a href="#3-使用使用Kibana测试ElasticSearch的复杂查询" class="headerlink" title="3.使用使用Kibana测试ElasticSearch的复杂查询"></a>3.使用使用Kibana测试ElasticSearch的复杂查询</h3><ul>
+<li><p>条件查询</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET /user/_doc/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"match"</span>: &#123;</span><br><span class="line">      <span class="string">"tags"</span>: <span class="string">"技术宅"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>结果过滤</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET /user/_doc/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"match"</span>: &#123;</span><br><span class="line">      <span class="string">"tags"</span>: <span class="string">"技术宅"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">   <span class="string">"_source"</span>: [<span class="string">"name"</span>,<span class="string">"tags"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>排序搜索</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET /user/_doc/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"match"</span>: &#123;</span><br><span class="line">      <span class="string">"tags"</span>: <span class="string">"技术宅"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"sort"</span>: &#123;</span><br><span class="line">    <span class="string">"age"</span>: <span class="string">"desc"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分页查询</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET /user/_doc/_search</span><br><span class="line">&#123;</span><br><span class="line"> <span class="string">"from"</span>: <span class="number">0</span>,</span><br><span class="line"> <span class="string">"size"</span>:<span class="number">2</span>,</span><br><span class="line">  <span class="string">"sort"</span>: &#123;</span><br><span class="line">    <span class="string">"age"</span>: <span class="string">"desc"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多条件精确查询 must（所有条件都要符合）</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">GET /user/_doc/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"bool"</span>: &#123;</span><br><span class="line">      <span class="string">"must"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"match"</span>:&#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"Aaron"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"match"</span>:&#123;</span><br><span class="line">            <span class="string">"age"</span>:<span class="number">18</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>只要满足条件的都查询出来 should</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">GET /user/_doc/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"query"</span>: &#123;</span><br><span class="line">    <span class="string">"bool"</span>: &#123;</span><br><span class="line">      <span class="string">"should"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"match"</span>:&#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"Aaron"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">"match"</span>:&#123;</span><br><span class="line">            <span class="string">"age"</span>:<span class="number">20</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://starbuck.top/2020/02/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BElasticSearch%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" title="ElasticSearch-7.6.x搜索引擎" target="_blank" rel="external">https://starbuck.top/2020/02/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BElasticSearch%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://mp.csdn.net/console/article" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://mp.csdn.net/console/article" target="_blank"><span class="text-dark">Aaron</span><small class="ml-1x">never give up</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/02/16/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90ElasticSearch/" title="SpringBoot集成ElasticSearch"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/01/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" title="设计模式—适配器模式"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipay.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechat.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/starrysky0616" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2020 Aaron
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'P0pzsGGkz8AMaCsJEFcPSVXj-gzGzoHsz',
+    appKey: 'UA8TJ3nFx4G0FqLXLEtUfNSx',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

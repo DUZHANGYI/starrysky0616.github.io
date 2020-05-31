@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>SpringBoot集成ElasticSearch | AaronBlog</title>
+  <meta name="description" content="在上一章我们已经学习了ElasticSearch基本使用，现在我们来看看如何在java中使用ElasticSearch。使用前先启动ElasticSearch和ElasticSearch-Head（为了方便我们查看数据），不知道怎么做的可以参考上一章（注意：本次测试环境使用的是JDK1.8+SpringBoot2.2.5.RELEASE+ElasticSearch7.6.1）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot集成ElasticSearch">
+<meta property="og:url" content="https://starbuck.top/2020/02/16/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90ElasticSearch/index.html">
+<meta property="og:site_name" content="Aaron Blog">
+<meta property="og:description" content="在上一章我们已经学习了ElasticSearch基本使用，现在我们来看看如何在java中使用ElasticSearch。使用前先启动ElasticSearch和ElasticSearch-Head（为了方便我们查看数据），不知道怎么做的可以参考上一章（注意：本次测试环境使用的是JDK1.8+SpringBoot2.2.5.RELEASE+ElasticSearch7.6.1）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-05-31T08:33:34.577Z">
+<meta property="article:author" content="Aaron">
+<meta property="article:tag" content="ElasticSearch">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://starbuck.top/2020/02/16/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90ElasticSearch/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Aaron Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/logo.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://mp.csdn.net/console/article" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Aaron</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">never give up</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 湖北武汉</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/starrysky0616" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>个人学习博客</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/SSM/">SSM</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot/">SpringBoot</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SrpingCloud/">SrpingCloud</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSM/" rel="tag">SSM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringMVC/" rel="tag">SpringMVC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swagger2/" rel="tag">Swagger2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TK-MyBatis/" rel="tag">TK_MyBatis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" rel="tag">代理模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="tag">单例模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" rel="tag">工厂模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" rel="tag">桥接模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="tag">适配器模式</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/ElasticSearch/" style="font-size: 14px;">ElasticSearch</a> <a href="/tags/Mybatis/" style="font-size: 14px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 13px;">SSM</a> <a href="/tags/Spring/" style="font-size: 14px;">Spring</a> <a href="/tags/SpringBoot/" style="font-size: 13px;">SpringBoot</a> <a href="/tags/SpringMVC/" style="font-size: 13.5px;">SpringMVC</a> <a href="/tags/Swagger2/" style="font-size: 13px;">Swagger2</a> <a href="/tags/TK-MyBatis/" style="font-size: 13px;">TK_MyBatis</a> <a href="/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">代理模式</a> <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">单例模式</a> <a href="/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">工厂模式</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 13px;">微服务</a> <a href="/tags/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">桥接模式</a> <a href="/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">适配器模式</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/02/17/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94ElasticSearch%E5%AE%9E%E6%88%98JD/" class="title">ElasticSearch实战JD</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-16T16:00:00.000Z" itemprop="datePublished">2020-02-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/02/16/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90ElasticSearch/" class="title">SpringBoot集成ElasticSearch</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-15T16:00:00.000Z" itemprop="datePublished">2020-02-16</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/02/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BElasticSearch%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" class="title">ElasticSearch-7.6.x搜索引擎</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-02-15T05:43:23.000Z" itemprop="datePublished">2020-02-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/01/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" class="title">设计模式—适配器模式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-01-25T16:00:00.000Z" itemprop="datePublished">2020-01-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/01/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E2%80%94%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" class="title">设计模式—桥接模式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-01-24T16:00:00.000Z" itemprop="datePublished">2020-01-25</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-SpringBoot框架—SpringBoot集成ElasticSearch" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SpringBoot集成ElasticSearch
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/02/16/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90ElasticSearch/" class="article-date">
+	  <time datetime="2020-02-15T16:00:00.000Z" itemprop="datePublished">2020-02-16</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">搜索引擎</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/02/16/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90ElasticSearch/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <blockquote>
+<p>在上一章我们已经学习了ElasticSearch基本使用，现在我们来看看如何在java中使用ElasticSearch。使用前先启动ElasticSearch和ElasticSearch-Head（为了方便我们查看数据），不知道怎么做的可以参考<a href="https://blog.csdn.net/weixin_45900008/article/details/106353530" target="_blank" rel="noopener">上一章</a>（注意：本次测试环境使用的是JDK1.8+SpringBoot2.2.5.RELEASE+ElasticSearch7.6.1）</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="1-导入maven依赖"><a href="#1-导入maven依赖" class="headerlink" title="1.导入maven依赖"></a>1.导入maven依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">elasticsearch.version</span>&gt;</span>7.6.1<span class="tag">&lt;/<span class="name">elasticsearch.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-elasticsearch<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.62<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.junit.vintage<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit-vintage-engine<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-将我们的ElasticSearch注入到SpringBoot中"><a href="#2-将我们的ElasticSearch注入到SpringBoot中" class="headerlink" title="2.将我们的ElasticSearch注入到SpringBoot中"></a>2.将我们的ElasticSearch注入到SpringBoot中</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ElasticSearchClientConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RestHighLevelClient <span class="title">restHighLevelClient</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        RestHighLevelClient client = <span class="keyword">new</span> RestHighLevelClient(</span><br><span class="line">                RestClient.builder(</span><br><span class="line">                        <span class="keyword">new</span> HttpHost(<span class="string">"localhost"</span>, <span class="number">9200</span>, <span class="string">"http"</span>)</span><br><span class="line">                )</span><br><span class="line">        );</span><br><span class="line">        <span class="keyword">return</span> client;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-测试ElasticSearch在java中的使用"><a href="#3-测试ElasticSearch在java中的使用" class="headerlink" title="3.测试ElasticSearch在java中的使用"></a>3.测试ElasticSearch在java中的使用</h3><ol>
+<li><p>对索引的相关操作</p>
+<ul>
+<li><p>创建ES索引</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Resource</span></span><br><span class="line"><span class="keyword">private</span> RestHighLevelClient client;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testCreateIndex</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建索引的请求，如果该索引已存在则会报错</span></span><br><span class="line">    CreateIndexRequest createIndexRequest = <span class="keyword">new</span> CreateIndexRequest(<span class="string">"aaron_index"</span>);</span><br><span class="line">    <span class="comment">//2.执行请求返回一个地址值</span></span><br><span class="line">    CreateIndexResponse createIndexResponse = client.indices()</span><br><span class="line">            .create(createIndexRequest, RequestOptions.DEFAULT);</span><br><span class="line">    System.out.println(createIndexResponse);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取ES索引，判断是否存在</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testGetIndex</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">//1.获取索引的请求</span></span><br><span class="line">    GetIndexRequest getIndexRequest = <span class="keyword">new</span> GetIndexRequest(<span class="string">"aaron_index"</span>);</span><br><span class="line">    <span class="comment">//2.执行请求返回boolean</span></span><br><span class="line">    <span class="keyword">boolean</span> exists = client.indices().exists(getIndexRequest, RequestOptions.DEFAULT);</span><br><span class="line">    <span class="keyword">if</span> (exists) &#123;</span><br><span class="line">        System.out.println(<span class="string">"该索引已存在"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"该索引还未创建"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除ES索引</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testDeleteIndex</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">//1.删除索引的请求</span></span><br><span class="line">    DeleteIndexRequest deleteIndexRequest = <span class="keyword">new</span> DeleteIndexRequest(<span class="string">"aaron_index"</span>);</span><br><span class="line">    <span class="comment">//2.执行请求后返回删除的状态</span></span><br><span class="line">    AcknowledgedResponse delete = client.indices()</span><br><span class="line">                .delete(deleteIndexRequest, RequestOptions.DEFAULT);</span><br><span class="line">    System.out.println(delete.isAcknowledged());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>对文档的相关操作</p>
+<ul>
+<li><p>添加一条文档信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testAddDocument</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建对象</span></span><br><span class="line">    User user = <span class="keyword">new</span> User(<span class="string">"Aaron"</span>, <span class="number">20</span>);</span><br><span class="line">    <span class="comment">//2.创建请求</span></span><br><span class="line">    IndexRequest request = <span class="keyword">new</span> IndexRequest(<span class="string">"aaron_index"</span>);</span><br><span class="line">    <span class="comment">//3.设置一些规则（PUT /aaron_index/_doc/1）</span></span><br><span class="line">    request.id(<span class="string">"1"</span>);</span><br><span class="line">    request.timeout(TimeValue.timeValueSeconds(<span class="number">1</span>));</span><br><span class="line">    <span class="comment">//4.将我们的数据放入请求</span></span><br><span class="line">    request.source(JSON.toJSONString(user), XContentType.JSON);</span><br><span class="line">    <span class="comment">//5.客户端发送请求,获取响应的结果</span></span><br><span class="line">    IndexResponse indexResponse = client.index(request, RequestOptions.DEFAULT);</span><br><span class="line">    System.out.println(indexResponse.toString());</span><br><span class="line">    System.out.println(indexResponse.status());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加多条文档信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testInsertDataInBulk</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建BulkRequest对象，并设置超时时间</span></span><br><span class="line">    BulkRequest bulkRequest = <span class="keyword">new</span> BulkRequest();</span><br><span class="line">    bulkRequest.timeout(<span class="string">"10s"</span>);</span><br><span class="line">    <span class="comment">//2.创建多个对象</span></span><br><span class="line">    List&lt;User&gt; userList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    userList.add(<span class="keyword">new</span> User(<span class="string">"aaron1"</span>,<span class="number">18</span>));</span><br><span class="line">    userList.add(<span class="keyword">new</span> User(<span class="string">"aaron2"</span>,<span class="number">19</span>));</span><br><span class="line">    userList.add(<span class="keyword">new</span> User(<span class="string">"aaron3"</span>,<span class="number">20</span>));</span><br><span class="line">    userList.add(<span class="keyword">new</span> User(<span class="string">"aaron4"</span>,<span class="number">21</span>));</span><br><span class="line">    <span class="comment">//3.批处理请求（PUT /aaron_index/_doc/1）</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;userList.size() ; i++) &#123;</span><br><span class="line">        bulkRequest.add(</span><br><span class="line">                <span class="comment">//3.1.要插入的索引</span></span><br><span class="line">                <span class="keyword">new</span> IndexRequest(<span class="string">"aaron_index"</span>)</span><br><span class="line">                <span class="comment">//3.2.设置id为（i+1）</span></span><br><span class="line">                .id(<span class="string">""</span>+(i+<span class="number">1</span>))</span><br><span class="line">                <span class="comment">//3.3.放入我们要插入的数据</span></span><br><span class="line">                .source(JSON.toJSONString(userList.get(i)),XContentType.JSON)</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//4.执行批量插入的请求</span></span><br><span class="line">    BulkResponse bulkResponse = client.bulk(bulkRequest, RequestOptions.DEFAULT);</span><br><span class="line">    <span class="comment">//5.输出是否失败，返回false代表成功</span></span><br><span class="line">    System.out.println(bulkResponse.hasFailures());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判断文档是否存在</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">testIsDocument</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//1.获取文档,判断是否存在（GET /aaron_index/1）</span></span><br><span class="line">        GetRequest getRequest = <span class="keyword">new</span> GetRequest(<span class="string">"aaron_index"</span>,<span class="string">"1"</span>);</span><br><span class="line">        <span class="comment">//2.不获取返回的_source上下文</span></span><br><span class="line">        getRequest.fetchSourceContext(<span class="keyword">new</span> FetchSourceContext(<span class="keyword">false</span>));</span><br><span class="line">        <span class="keyword">boolean</span> exists = client.exists(getRequest, RequestOptions.DEFAULT);</span><br><span class="line">        <span class="keyword">if</span> (exists) &#123;</span><br><span class="line">            System.out.println(<span class="string">"该文档已存在"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"该文档不存在"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取文档信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testGetDocument</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">//1.获取文档（GET /aaron_index/1）</span></span><br><span class="line">    GetRequest getRequest = <span class="keyword">new</span> GetRequest(<span class="string">"aaron_index"</span>,<span class="string">"1"</span>);</span><br><span class="line">    <span class="comment">//2.发送请求打印返回结果</span></span><br><span class="line">    GetResponse documentFields = client.get(getRequest, RequestOptions.DEFAULT);</span><br><span class="line">    System.out.println(documentFields.getSourceAsString());</span><br><span class="line">    System.out.println(documentFields);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根据条件获取文档信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testSearch</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建搜索请求</span></span><br><span class="line">    SearchRequest searchRequest = <span class="keyword">new</span> SearchRequest(<span class="string">"aaron_index"</span>);</span><br><span class="line">    <span class="comment">//2.构建搜索条件</span></span><br><span class="line">    SearchSourceBuilder searchSourceBuilder = <span class="keyword">new</span> SearchSourceBuilder();</span><br><span class="line">    <span class="comment">//3.查询条件，我们可以使用QueryBuilders工具来实现</span></span><br><span class="line">        <span class="comment">//QueryBuilders.termQuery("name", "aaron1")：精确查找</span></span><br><span class="line">        <span class="comment">//QueryBuilders.matchAllQuery()：匹配所有</span></span><br><span class="line">    <span class="comment">//TermQueryBuilder queryBuilder = QueryBuilders.termQuery("name", "aaron1");</span></span><br><span class="line">    MatchAllQueryBuilder matchAllQueryBuilder = QueryBuilders.matchAllQuery();</span><br><span class="line">    searchSourceBuilder.query(matchAllQueryBuilder);</span><br><span class="line">    <span class="comment">//4.设置超时时间</span></span><br><span class="line">    searchSourceBuilder.timeout(<span class="keyword">new</span> TimeValue(<span class="number">60</span>, TimeUnit.SECONDS));</span><br><span class="line">    <span class="comment">//5.将我们的搜索条件放入到请求当中</span></span><br><span class="line">    searchRequest.source(searchSourceBuilder);</span><br><span class="line">    <span class="comment">//6.客户端执行搜索请求,返回搜索结果</span></span><br><span class="line">    SearchResponse searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);</span><br><span class="line">    <span class="comment">//7.循环打印搜索结果</span></span><br><span class="line">    <span class="keyword">for</span> (SearchHit hit : searchResponse.getHits().getHits()) &#123;</span><br><span class="line">        System.out.println(hit.getSourceAsMap());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新文档信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testUpdateDocument</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建一个更新文档的请求</span></span><br><span class="line">    UpdateRequest updateRequest = <span class="keyword">new</span> UpdateRequest(<span class="string">"aaron_index"</span>, <span class="string">"1"</span>);</span><br><span class="line">    <span class="comment">//2.设置超时时间（可以不写）</span></span><br><span class="line">    updateRequest.timeout(<span class="string">"1s"</span>);</span><br><span class="line">    <span class="comment">//3.创建一个新的对象，将对象放到请求当中</span></span><br><span class="line">    User user = <span class="keyword">new</span> User(<span class="string">"Aaron"</span>, <span class="number">18</span>);</span><br><span class="line">    updateRequest.doc(JSON.toJSONString(user),XContentType.JSON);</span><br><span class="line">    <span class="comment">//4.执行修改操作</span></span><br><span class="line">    UpdateResponse updateResponse = client.update(updateRequest, RequestOptions.DEFAULT);</span><br><span class="line">    System.out.println(updateResponse);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除文档信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testDeleteDocument</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建一个删除文档的请求</span></span><br><span class="line">    DeleteRequest deleteRequest = <span class="keyword">new</span> DeleteRequest(<span class="string">"aaron_index"</span>, <span class="string">"1"</span>);</span><br><span class="line">    <span class="comment">//2.设置超时时间（可以不写）</span></span><br><span class="line">    deleteRequest.timeout(<span class="string">"1s"</span>);</span><br><span class="line">    <span class="comment">//3.执行删除操作</span></span><br><span class="line">    DeleteResponse deleteResponse = client.delete(deleteRequest,RequestOptions.DEFAULT);</span><br><span class="line">    System.out.println(deleteResponse);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://starbuck.top/2020/02/16/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90ElasticSearch/" title="SpringBoot集成ElasticSearch" target="_blank" rel="external">https://starbuck.top/2020/02/16/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94SpringBoot%E9%9B%86%E6%88%90ElasticSearch/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://mp.csdn.net/console/article" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://mp.csdn.net/console/article" target="_blank"><span class="text-dark">Aaron</span><small class="ml-1x">never give up</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/02/17/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94ElasticSearch%E5%AE%9E%E6%88%98JD/" title="ElasticSearch实战JD"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/02/15/SpringBoot%E6%A1%86%E6%9E%B6%E2%80%94%E5%88%9D%E5%A7%8BElasticSearch%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" title="ElasticSearch-7.6.x搜索引擎"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipay.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechat.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/starrysky0616" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2020 Aaron
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'P0pzsGGkz8AMaCsJEFcPSVXj-gzGzoHsz',
+    appKey: 'UA8TJ3nFx4G0FqLXLEtUfNSx',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
